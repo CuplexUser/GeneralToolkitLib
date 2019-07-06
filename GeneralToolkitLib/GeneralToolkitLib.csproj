@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18B7C1DC-CB9B-4B4F-B3BB-40E79B277DD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GeneralToolkitLib</RootNamespace>
+    <AssemblyName>GeneralToolkitLib</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet>GeneralToolkitLib.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <CodeAnalysisRuleSet>GeneralToolkitLib.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\default.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GeneralToolkit.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>GeneralToolkitLib.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet>GeneralToolkitLib.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barcode\QRCoder.cs" />
+    <Compile Include="Compression\SevenZip\CodeProgressImplementation.cs" />
+    <Compile Include="Compression\SevenZip\CoderPropID.cs" />
+    <Compile Include="Compression\SevenZip\Common\CommandForm.cs" />
+    <Compile Include="Compression\SevenZip\Common\SwitchForm.cs" />
+    <Compile Include="Compression\SevenZip\Common\CommandSubCharsSet.cs" />
+    <Compile Include="Compression\SevenZip\Common\CRC.cs" />
+    <Compile Include="Compression\SevenZip\Common\InBuffer.cs" />
+    <Compile Include="Compression\SevenZip\Common\OutBuffer.cs" />
+    <Compile Include="Compression\SevenZip\Common\Parser.cs" />
+    <Compile Include="Compression\SevenZip\Common\SwitchResult.cs" />
+    <Compile Include="Compression\SevenZip\Common\SwitchType.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZMA\Base.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZMA\Decoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZMA\Encoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZ\IInWindowStream.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZ\IMatchFinder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZ\BinTree.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZ\InWindow.cs" />
+    <Compile Include="Compression\SevenZip\Compress\LZ\OutWindow.cs" />
+    <Compile Include="Compression\SevenZip\Compress\RangeCoder\BitDecoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\RangeCoder\BitTreeDecoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\RangeCoder\Decoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\RangeCoder\Encoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\RangeCoder\BitEncoder.cs" />
+    <Compile Include="Compression\SevenZip\Compress\RangeCoder\BitTreeEncoder.cs" />
+    <Compile Include="Compression\SevenZip\DataErrorException.cs" />
+    <Compile Include="Compression\SevenZip\ICodeProgress.cs" />
+    <Compile Include="Compression\SevenZip\ICoder.cs" />
+    <Compile Include="Compression\SevenZip\InvalidParamException.cs" />
+    <Compile Include="Compression\SevenZip\ISetCoderProperties.cs" />
+    <Compile Include="Compression\SevenZip\ISetDecoderProperties.cs" />
+    <Compile Include="Compression\SevenZip\IWriteCoderProperties.cs" />
+    <Compile Include="ConfigHelper\AssemblyHelper.cs" />
+    <Compile Include="ConfigHelper\GlobalSettings.cs" />
+    <Compile Include="ConfigHelper\IniConfigFileManager.cs" />
+    <Compile Include="Configuration\ApplicationBuildConfig.cs" />
+    <Compile Include="Converters\Base32.cs" />
+    <Compile Include="Converters\GeneralConverters.cs" />
+    <Compile Include="Converters\StringManipulation.cs" />
+    <Compile Include="DataTypes\AvlTree.cs" />
+    <Compile Include="DataTypes\BinaryTree.cs" />
+    <Compile Include="DataTypes\OutcomeEventArgs.cs" />
+    <Compile Include="DataTypes\SaveFileEventHandler.cs" />
+    <Compile Include="DataTypes\Sequence.cs" />
+    <Compile Include="DataTypes\UInt128.cs" />
+    <Compile Include="Encryption\CryptoProgress.cs" />
+    <Compile Include="Encryption\EncryptionManager.cs" />
+    <Compile Include="Encryption\Licence\DataConverters\ObjectSerializer.cs" />
+    <Compile Include="Encryption\Licence\DataModels\RegistrationDataModel.cs" />
+    <Compile Include="Encryption\Licence\LicenceService.cs" />
+    <Compile Include="Encryption\RSAKeySetIdentity.cs" />
+    <Compile Include="Encryption\RSALocalCryptoKeyManager.cs" />
+    <Compile Include="Encryption\RSA_AsymetricEncryption.cs" />
+    <Compile Include="Encryption\Licence\DataModels\LicenceDataModel.cs" />
+    <Compile Include="Encryption\Licence\RegistrationDataManager.cs" />
+    <Compile Include="Encryption\Licence\SerialNumberManager.cs" />
+    <Compile Include="Encryption\Licence\StaticData\SerialNumbersSettings.cs" />
+    <Compile Include="Encryption\Licence\SysInfoManager.cs" />
+    <Compile Include="Events\Unsubscriber.cs" />
+    <Compile Include="Logging\SerilogAutoConfig.cs" />
+    <Compile Include="Utility\TypedObjectCompare.cs" />
+    <Compile Include="Hashing\ChecksumFileGenerator.cs" />
+    <Compile Include="Hashing\ChecksumProgress.cs" />
+    <Compile Include="Hashing\CRC32.cs" />
+    <Compile Include="Hashing\HashProgress.cs" />
+    <Compile Include="Hashing\IHashTransform.cs" />
+    <Compile Include="Hashing\MD5.cs" />
+    <Compile Include="Hashing\SHA256.cs" />
+    <Compile Include="Hashing\SHA512.cs" />
+    <Compile Include="OTP\Authenticator.cs" />
+    <Compile Include="Converters\Base32Encoding.cs" />
+    <Compile Include="OTP\CounterAuthenticator.cs" />
+    <Compile Include="OTP\GoogleAuthenticator.cs" />
+    <Compile Include="OTP\IUsedCodesManager.cs" />
+    <Compile Include="OTP\TimeAuthenticator.cs" />
+    <Compile Include="OTP\UsedCodesManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="Storage\FileOperationAPIWrapper.cs" />
+    <Compile Include="Storage\Filesystem\XMLImporter.cs" />
+    <Compile Include="Storage\IStorageManager.cs" />
+    <Compile Include="Storage\Memory\PasswordStorage.cs" />
+    <Compile Include="Storage\Models\ArchiveFileHeader.cs" />
+    <Compile Include="Storage\Models\CompressionFileHeader.cs" />
+    <Compile Include="Storage\Models\ProgressMemoryStream.cs" />
+    <Compile Include="Storage\Registry\IRegistryAccess.cs" />
+    <Compile Include="Storage\Registry\RegistryDataTypeQWORD.cs" />
+    <Compile Include="Storage\StorageManagerBase.cs" />
+    <Compile Include="Storage\Models\StorageManagerSettings.cs" />
+    <Compile Include="UserControls\ProgressWaitControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProgressWaitControl.Designer.cs">
+      <DependentUpon>ProgressWaitControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SelectionBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utility\DataConverters\IniConfigFileSectionSerializer.cs" />
+    <Compile Include="Utility\DataConverters\RawSerializer.cs" />
+    <Compile Include="Storage\Models\StorageManagerProgress.cs" />
+    <Compile Include="UserControls\CreateAndVerifyOTP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CreateAndVerifyOTP.Designer.cs">
+      <DependentUpon>CreateAndVerifyOTP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CreateLicenceRequestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CreateLicenceRequestControl.Designer.cs">
+      <DependentUpon>CreateLicenceRequestControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LicenceInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LicenceInfoControl.Designer.cs">
+      <DependentUpon>LicenceInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DataConverters\ObjectSerializer.cs" />
+    <Compile Include="Utility\FileSystem.cs" />
+    <Compile Include="Utility\KeyValueNumericValidator.cs" />
+    <Compile Include="Utility\PasswordSettings.cs" />
+    <Compile Include="Utility\RandomGenerator\SecureRandomGenerator.cs" />
+    <Compile Include="Utility\SystemInfo.cs" />
+    <Compile Include="WindowsApi\AccessHelper.cs" />
+    <Compile Include="Storage\Registry\ModifyRegistry.cs" />
+    <Compile Include="Storage\Registry\RegistryDataTypeDWORD.cs" />
+    <Compile Include="Storage\Registry\RegistryDataTypeMultiString.cs" />
+    <Compile Include="Storage\Registry\RegistryDataTypes.cs" />
+    <Compile Include="Storage\Registry\RegistryDataTypeString.cs" />
+    <Compile Include="Storage\StorageManager.cs" />
+    <Compile Include="Utility\DelayOperation.cs" />
+    <Compile Include="WindowsApi\LoadSystemIcon.cs" />
+    <Compile Include="WindowsApi\UserAccountControl\CSUACSelfElevation.cs" />
+    <Compile Include="WindowsApi\FullscreenWindow.cs" />
+    <Compile Include="WindowsApi\ScreenSaver.cs" />
+    <Compile Include="WindowsApi\UserAccountControl\UACSelfElevation.cs" />
+    <Compile Include="WindowsApi\WindowsIdentityHelper.cs" />
+    <Compile Include="WindowsApi\WindowEvents.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.9.2</Version>
+    </PackageReference>
+    <PackageReference Include="AutofacSerilogIntegration">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="AutoMapper">
+      <Version>8.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="JetBrains.Annotations">
+      <Version>2019.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="morelinq">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="MoreLinq.Source.MoreEnumerable.DistinctBy">
+      <Version>1.0.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="protobuf-net">
+      <Version>2.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog">
+      <Version>2.8.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Enrichers.Thread">
+      <Version>3.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.Console">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.EventLog">
+      <Version>3.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.File">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.PeriodicBatching">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.RollingFile">
+      <Version>3.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.Trace">
+      <Version>2.1.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GeneralToolkitLib.ruleset" />
+    <None Include="Resources\default.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="GeneralToolkit.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CreateAndVerifyOTP.resx">
+      <DependentUpon>CreateAndVerifyOTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CreateLicenceRequestControl.resx">
+      <DependentUpon>CreateLicenceRequestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LicenceInfoControl.resx">
+      <DependentUpon>LicenceInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProgressWaitControl.resx">
+      <DependentUpon>ProgressWaitControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
