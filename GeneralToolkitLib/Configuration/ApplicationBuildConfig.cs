@@ -17,11 +17,11 @@ namespace GeneralToolkitLib.Configuration
             string logFilename = Assembly.GetCallingAssembly().GetName().Name;
             if (rollingFile)
             {
-                logFilename += "_log-{Date}.txt";
+                logFilename += "{Date}.log";
             }
             else
             {
-                logFilename += "_log.txt";
+                logFilename += "_log.log";
             }
 
 
@@ -38,7 +38,7 @@ namespace GeneralToolkitLib.Configuration
                 return GetAssemblyPath(Assembly.GetExecutingAssembly().Location);
             }
 
-            return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + Assembly.GetEntryAssembly().GetName().Name.Replace(" ", "") + "\\";
+            return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\" + Assembly.GetEntryAssembly()?.GetName().Name.Replace(" ", "") + "\\";
         }
 
         /// <summary>
