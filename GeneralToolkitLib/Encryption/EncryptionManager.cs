@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -12,7 +13,7 @@ namespace GeneralToolkitLib.Encryption
 {
     public class EncryptionManager
     {
-        private const int MAX_BUFFER_SIZE = 33554432; //32 Mb
+        private const int MaxBufferSize = 33554432; //32 Mb
 
         private static readonly byte[] SALT =
         {
@@ -25,13 +26,7 @@ namespace GeneralToolkitLib.Encryption
             0x65, 0x0, 0xa, 0x13, 0x63, 0xf1, 0x57, 0x96, 0xc2, 0x51, 0x4e, 0xef, 0xe2, 0x52, 0xa2, 0xb1, 0xe6, 0x7a, 0xbd, 0x26, 0x8b, 0x99, 0x9b, 0x6e, 0xc1, 0xdf,
             0x34, 0xb6, 0x33, 0x1c, 0x0, 0x76
         };
-
-        //private const string DERIVED_KEY = @"NBZVZ4Xyayz3j5yNUBcpvo6kYhodHR1rQ328q5eIrpd8BYdgDh1Uy5wpb0KaSwYHWADm1TbpC3KXx6o1k47U5oPSHvnFQIYVNFlk6T8BUwINQgYTL0QYXoz3LTMgLX6SLuoHJQMfy7zPP4nctyvrRbXZofsyC1uOp5sv8AWW9KOZJz6yLzE5eMwbgEfcmYPhZpDdux7
-        //12ktXe3lRoN9cYr4UK8btpeJpP7zT5afgTgkF8A4PfHtW4KPZIW8eV7bk4ypGxQgBgVaoPdPy0ekHLeGGncbx5Roox3yuey4AYdRAnDv2bL8aiVN423SBGBMX998bUgSDAPD3grAxNSSv3KDbdGRdDFlgMmt9iLtSrk7fwmJy4LCXJZe8E5atLbZALgOWbo0ip5NJtvWlNNVG8KZeVldXQjVEFifvIdbu6fNpCD
-        //sZmbtrI0osFniu7Mi6cjzamvczf1V8N9o0wijlHnw97T93Vb5R74bCSyeRm5aIlU6SnYChzns8pdXaFPDK9QXU9wZruu4dtq0pGuMzmZMcRxHxSudvXKvWmtagg3fLLJiTyhPjibS9a9sPFCPrLuqmvlem9X5fGuykBDj0Luj1fyrfAFzO4dwj4xnTbKqv07NZpgBrtbmxMSwfH2PRI5eC21LuPgye4jmaV983X
-        //onXrZdgIS3AC4wfOb8DnEPbUx7Ejun5c2YfbIrMtP6tF9vSxQhKadEmDJvd0p0rVuFO76Ve0RRbKboZ17T2xmk5wTmApw36fdugdxA2dDo5ercERHpFt22maHfjnnBbQ4rVzETJDrprn14dAwgbhZXfZ9nfgrDhVL9uBbNaQ0dnYaFYLIHFix3R1NHdmgzy5GF1qduCY7agRMZZ2DC41KengvfdBpXpedYXuaJp
-        //PfQkP5glVkNQTijsXSuQYZYLyuaaVNqGq6nVfcGQn8u0R4ReiATl4XHiHaJljLqdTJtfCZVRyab7c9OwcgTMsgv3dXhjIaLc9XN63z1SnCTi03Csja3jkSh7cgiE1ftOcEyQ";
-
+        
         public async Task<bool> EncryptAndSaveFileAsync(string filePath, MemoryStream ms, string passwordString, CryptoProgress progress)
         {
             bool result = await Task.Run(() => EncryptAndSaveFile(filePath, ms, passwordString, progress));
@@ -63,6 +58,7 @@ namespace GeneralToolkitLib.Encryption
                 using (Aes aesAlg = Aes.Create())
                 {
                     var rfc2898DeriveBytes = new Rfc2898DeriveBytes(passwordString, SALT, 1000);
+                    Debug.Assert(aesAlg != null, nameof(aesAlg) + " != null");
                     aesAlg.BlockSize = 128;
                     aesAlg.KeySize = 256;
                     aesAlg.Padding = PaddingMode.PKCS7;
@@ -72,14 +68,14 @@ namespace GeneralToolkitLib.Encryption
                     aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
                     // Create a cncrytor to perform the stream transform.
-                    ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                    ICryptoTransform encrypt = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                     // Create the streams used for encryption.
-                    int bufferSize = (int)Math.Min(MAX_BUFFER_SIZE, ms.Length);
+                    int bufferSize = (int)Math.Min(MaxBufferSize, ms.Length);
                     var buffer = new byte[bufferSize];
                     ms.Position = 0;
 
-                    using (var csEncrypt = new CryptoStream(fs, encryptor, CryptoStreamMode.Write))
+                    using (var csEncrypt = new CryptoStream(fs, encrypt, CryptoStreamMode.Write))
                     {
                         int bytesRead;
                         while ((bytesRead = ms.Read(buffer, 0, buffer.Length)) > 0)
@@ -151,7 +147,7 @@ namespace GeneralToolkitLib.Encryption
                     ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
                     // Create the streams used for decryption.
-                    int bufferSize = Math.Min(MAX_BUFFER_SIZE, (int)fs.Length);
+                    int bufferSize = Math.Min(MaxBufferSize, (int)fs.Length);
                     var plainTextBytes = new byte[bufferSize];
 
                     using (var csDecrypt = new CryptoStream(fs, decryptor, CryptoStreamMode.Read))
@@ -204,7 +200,7 @@ namespace GeneralToolkitLib.Encryption
                 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
                 // Create the streams used for decryption.
-                int bufferSize = Math.Min(MAX_BUFFER_SIZE, (int)msEncrypted.Length);
+                int bufferSize = Math.Min(MaxBufferSize, (int)msEncrypted.Length);
                 var plainTextBytes = new byte[bufferSize];
 
                 using (var csDecrypt = new CryptoStream(msEncrypted, decryptor, CryptoStreamMode.Read))
@@ -241,7 +237,7 @@ namespace GeneralToolkitLib.Encryption
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 // Create the streams used for encryption.
-                int bufferSize = (int)Math.Min(MAX_BUFFER_SIZE, ms.Length);
+                int bufferSize = (int)Math.Min(MaxBufferSize, ms.Length);
                 var buffer = new byte[bufferSize];
                 ms.Position = 0;
 
@@ -284,7 +280,7 @@ namespace GeneralToolkitLib.Encryption
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 // Create the streams used for encryption.
-                int bufferSize = (int)Math.Min(MAX_BUFFER_SIZE, ms.Length);
+                int bufferSize = (int)Math.Min(MaxBufferSize, ms.Length);
                 var buffer = new byte[bufferSize];
                 ms.Position = 0;
 
@@ -308,7 +304,7 @@ namespace GeneralToolkitLib.Encryption
 
         public static void EncodeString(ref byte[] buffer, string plaintext, string key)
         {
-            if (buffer == null) throw new ArgumentNullException(nameof(buffer));
+            //if (buffer == null) throw new ArgumentNullException(nameof(buffer));
             using (Aes aesAlg = Aes.Create())
             {
                 var rfc2898DeriveBytes = new Rfc2898DeriveBytes(key, SALT2, 1000);
@@ -322,10 +318,10 @@ namespace GeneralToolkitLib.Encryption
                 aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
                 // Create a cncrytor to perform the stream transform.
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                ICryptoTransform encrypt = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 var ms = new MemoryStream();
-                using (var csEncrypt = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                using (var csEncrypt = new CryptoStream(ms, encrypt, CryptoStreamMode.Write))
                 {
                     var plainTextBytes = Encoding.UTF8.GetBytes(plaintext);
 

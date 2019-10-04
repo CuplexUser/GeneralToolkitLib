@@ -10,31 +10,31 @@ namespace GeneralToolkitLib.Encryption.License
     public class SerialNumberManager
     {
         private const string KeyFormat = "XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"; //28 - 34
-        private const int VALIDATION_HASH_LENTH = 512;
+        private const int ValidationHashLength = 512;
         private readonly SerialNumbersSettings.ProtectedApp _app;
         private readonly RSAParameters _rsaPubKey;
-        private LicenceDataModel _licenceData;
+        private LicenseDataModel _licenseData;
 
-        public LicenceDataModel LicenceData
+        public LicenseDataModel LicenseData
         {
-            get { return _licenceData; }
-            set { _licenceData = value; }
+            get { return _licenseData; }
+            set { _licenseData = value; }
         }
 
         public SerialNumberManager(RSAParameters pubRsaKey, SerialNumbersSettings.ProtectedApp app)
         {
             _app = app;
             _rsaPubKey = pubRsaKey;
-            _licenceData = new LicenceDataModel();
+            _licenseData = new LicenseDataModel();
         }
 
         public bool ValidateRegistrationData()
         {
-            if (string.IsNullOrEmpty(_licenceData?.RegistrationKey) || _licenceData.ValidationHash == null || _licenceData.ValidationHash.Length != VALIDATION_HASH_LENTH)
+            if (string.IsNullOrEmpty(_licenseData?.RegistrationKey) || _licenseData.ValidationHash == null || _licenseData.ValidationHash.Length != ValidationHashLength)
                 return false;
 
-            byte[] licenceDataBytes = ObjectSerializer.SerializeDataContract(LicenceData.RegistrationData);
-            return VerifySignedHash(licenceDataBytes, _licenceData.ValidationHash, _rsaPubKey);
+            byte[] licenseDataBytes = ObjectSerializer.SerializeDataContract(LicenseData.RegistrationData);
+            return VerifySignedHash(licenseDataBytes, _licenseData.ValidationHash, _rsaPubKey);
         }
 
         public bool VerifyRegistrationKey(string registrationKey)
@@ -42,15 +42,21 @@ namespace GeneralToolkitLib.Encryption.License
             if (registrationKey == null || registrationKey.Length != KeyFormat.Length)
                 return false;
 
-            byte[] licenceDataBytes = ObjectSerializer.SerializeDataContract(LicenceData.RegistrationData);
-            return registrationKey == CreateRegistrationKey(licenceDataBytes);
+            byte[] licenseDataBytes = ObjectSerializer.SerializeDataContract(LicenseData.RegistrationData);
+            return registrationKey == CreateRegistrationKey(licenseDataBytes);
+        }
+
+        public string GenerateRegistrationKey(RegistrationDataModel registrationData)
+        {
+            byte[] licenseDataBytes = ObjectSerializer.SerializeDataContract(registrationData);
+            return CreateRegistrationKey(licenseDataBytes);
         }
 
         #region Conversion Methods
 
-        private string CreateRegistrationKey(byte[] licenceBytes)
+        private string CreateRegistrationKey(byte[] licenseBytes)
         {
-            string regKeyData = GeneralConverters.ByteArrayToBase64(licenceBytes);
+            string regKeyData = GeneralConverters.ByteArrayToBase64(licenseBytes);
             regKeyData = SerialNumbersSettings.ProtectedApplications.SaltData.GeneralToolkit + regKeyData + SerialNumbersSettings.ProtectedApplications.SaltData.GeneralToolkit + _app;
             byte[] buffer = null;
             EncryptionManager.EncodeString(ref buffer, regKeyData, "064lMPnLyjI6sqfXm5KhSE4R0FDU0AchClDyxpAWKkJgFyih59IkhX598sveO7vdbuEKgbEQjDRcLtx0FbcJtASEqHZE8bLX2CIq2LwYZC4OWZGWzx7dv0dxp1h6dcck");

@@ -1,24 +1,24 @@
 ﻿using System;
 using System.IO;
-using GeneralToolkitLib.Encryption.Licence.DataModels;
-using GeneralToolkitLib.Log;
+using GeneralToolkitLib.Encryption.License.DataModels;
+using Serilog;
 
 namespace GeneralToolkitLib.Utility.Serialization
 {
     public static class ObjectSerializer
     {
-        public static LicenceDataModel DeserializeLicenceDataFromString(string licenceDataBase64)
+        public static LicenseDataModel DeserializeLicenseDataFromString(string licenseDataBase64)
         {
-            if (licenceDataBase64 == null)
+            if (licenseDataBase64 == null)
                 return null;
             try
             {
-                byte[] data = Convert.FromBase64String(licenceDataBase64);
-                return DeserializeLicenceData(data);
+                byte[] data = Convert.FromBase64String(licenseDataBase64);
+                return DeserializeLicenseData(data);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                LogWriter.WriteLog(ex.Message);
+                Log.Error(ex, ex.Message);
             }
             return null;
         }
@@ -34,7 +34,7 @@ namespace GeneralToolkitLib.Utility.Serialization
             }
             catch (Exception ex)
             {
-                LogWriter.WriteLog(ex.Message);
+                Log.Error(ex, ex.Message);
             }
             return null;
         }
@@ -52,10 +52,10 @@ namespace GeneralToolkitLib.Utility.Serialization
             return ProtoBuf.Serializer.Deserialize<RegistrationDataModel>(ms);
         }
 
-        private static LicenceDataModel DeserializeLicenceData(byte[] data)
+        private static LicenseDataModel DeserializeLicenseData(byte[] data)
         {
             MemoryStream ms = new MemoryStream(data);
-            return ProtoBuf.Serializer.Deserialize<LicenceDataModel>(ms);
+            return ProtoBuf.Serializer.Deserialize<LicenseDataModel>(ms);
         }
     }
 }

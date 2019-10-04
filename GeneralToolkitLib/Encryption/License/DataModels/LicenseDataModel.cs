@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace GeneralToolkitLib.Encryption.Licence.DataModels
+namespace GeneralToolkitLib.Encryption.License.DataModels
 {
     [Serializable]
-    [DataContract(Name = "LicenceDataModel")]
-    public sealed class LicenceDataModel
+    [DataContract(Name = "LicenseDataModel")]
+    public sealed class LicenseDataModel
     {
         [DataMember(Name = "RegistrationData", Order = 1)]
         public RegistrationDataModel RegistrationData { get; set; }

@@ -32,7 +32,7 @@ namespace GeneralToolkitLib.Encryption.License
                 cumputerIdBytes = hashAlg.ComputeHash(sysInfoBytes);
             }
 
-            byte[] rsaSignedHashBytes = SerialNumberManager.HashAndSignBytes(cumputerIdBytes, RSALocalCryptoKeyManager.GetAssemblyRsaParameters());
+            byte[] rsaSignedHashBytes = SerialNumberManager.HashAndSignBytes(cumputerIdBytes, RsaLocalCryptoKeyManager.GetAssemblyRsaParameters());
 
             return new SysInfo(Converters.GeneralConverters.ByteArrayToBase64(cumputerIdBytes), Converters.GeneralConverters.ByteArrayToBase64(rsaSignedHashBytes));
         }

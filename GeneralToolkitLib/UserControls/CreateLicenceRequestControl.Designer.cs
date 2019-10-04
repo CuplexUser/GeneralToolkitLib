@@ -1,6 +1,6 @@
 ﻿namespace GeneralToolkitLib.UserControls
 {
-    partial class CreateLicenceRequestControl
+    partial class CreateLicenseRequestControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtLicenceRequest = new System.Windows.Forms.RichTextBox();
+            this.txtLicenseRequest = new System.Windows.Forms.RichTextBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -47,7 +47,7 @@
             this.groupBox1.Controls.Add(this.lblInfo);
             this.groupBox1.Controls.Add(this.btnGenerate);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtLicenceRequest);
+            this.groupBox1.Controls.Add(this.txtLicenseRequest);
             this.groupBox1.Controls.Add(this.txtCompany);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtLastName);
@@ -78,16 +78,16 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Licence Request:";
+            this.label4.Text = "License Request:";
             // 
-            // txtLicenceRequest
+            // txtLicenseRequest
             // 
-            this.txtLicenceRequest.Location = new System.Drawing.Point(28, 139);
-            this.txtLicenceRequest.Name = "txtLicenceRequest";
-            this.txtLicenceRequest.ReadOnly = true;
-            this.txtLicenceRequest.Size = new System.Drawing.Size(410, 200);
-            this.txtLicenceRequest.TabIndex = 6;
-            this.txtLicenceRequest.Text = "";
+            this.txtLicenseRequest.Location = new System.Drawing.Point(28, 139);
+            this.txtLicenseRequest.Name = "txtLicenseRequest";
+            this.txtLicenseRequest.ReadOnly = true;
+            this.txtLicenseRequest.Size = new System.Drawing.Size(410, 200);
+            this.txtLicenseRequest.TabIndex = 6;
+            this.txtLicenseRequest.Text = "";
             // 
             // txtCompany
             // 
@@ -149,12 +149,12 @@
             this.lblInfo.TabIndex = 8;
             this.lblInfo.Text = "lblInfo";
             // 
-            // CreateLicenceRequestControl
+            // CreateLicenseRequestControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "CreateLicenceRequestControl";
+            this.Name = "CreateLicenseRequestControl";
             this.Size = new System.Drawing.Size(461, 392);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -173,7 +173,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox txtLicenceRequest;
+        private System.Windows.Forms.RichTextBox txtLicenseRequest;
         private System.Windows.Forms.Label lblInfo;
     }
 }

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace GeneralToolkitLib.Encryption
 {
-    public class RSA_AsymetricEncryption
+    public class RsaAsymmetricEncryption
     {
         public enum RSAKeySize
         {
@@ -23,7 +21,7 @@ namespace GeneralToolkitLib.Encryption
         private const string BEGIN_RSA_PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----";
         private const string END_RSA_PRIVATE_KEY = "-----END RSA PRIVATE KEY-----";
 
-        public RSAKeySetIdentity GenerateRSAKeyPair(RSAKeySize keySize)
+        public RSAKeySetIdentity GenerateRsaKeyPair(RSAKeySize keySize)
         {
             RSAKeySetIdentity keySet;
             using (var rsa = new RSACryptoServiceProvider((int) keySize))
@@ -111,7 +109,7 @@ namespace GeneralToolkitLib.Encryption
 
         public string DecryptObjectUsingRSA(string b64EncodedData, RSAParameters rsaParameters)
         {
-            using (var rsa = new RSACryptoServiceProvider(4096))
+            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(4096))
             {
                 byte[] encodedData = Convert.FromBase64String(b64EncodedData);
                 rsa.ImportParameters(rsaParameters);

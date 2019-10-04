@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using GeneralToolkitLib.Encryption.License;
 
 namespace GeneralToolkitLib.Encryption.License.DataModels
 {

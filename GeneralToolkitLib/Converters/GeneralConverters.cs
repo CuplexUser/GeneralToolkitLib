@@ -168,7 +168,7 @@ namespace GeneralToolkitLib.Converters
             public static readonly string[] FileSizeTypesStrings = { "b", "kB", "Mb", "Gb", "Tb", "Pbyte" };
         }
 
-        public static class FileSizeToStringFormater
+        public static class FileSizeToStringFormatter
         {
             public enum FileSizeSteps : long
             {

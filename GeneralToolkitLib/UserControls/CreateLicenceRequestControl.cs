@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using GeneralToolkitLib.Encryption.Licence;
-using GeneralToolkitLib.Encryption.Licence.DataModels;
+using GeneralToolkitLib.Encryption.License;
+using GeneralToolkitLib.Encryption.License.DataModels;
 
 namespace GeneralToolkitLib.UserControls
 {
-    public partial class CreateLicenceRequestControl : UserControl
+    public partial class CreateLicenseRequestControl : UserControl
     {
         private RegistrationDataModel _registrationData;
         private RegistrationDataManager _registrationDataManager;
@@ -15,7 +15,7 @@ namespace GeneralToolkitLib.UserControls
             get { return _registrationData; }
         }
 
-        public CreateLicenceRequestControl()
+        public CreateLicenseRequestControl()
         {
             InitializeComponent();
             lblInfo.Text = "";
@@ -39,7 +39,7 @@ namespace GeneralToolkitLib.UserControls
             };
 
             _registrationDataManager = RegistrationDataManager.Create(_registrationData);
-            txtLicenceRequest.Text = _registrationDataManager.SerializeToString();
+            txtLicenseRequest.Text = _registrationDataManager.SerializeToString();
         }
     }
 }

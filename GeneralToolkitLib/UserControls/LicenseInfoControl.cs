@@ -1,42 +1,43 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
-using GeneralToolkitLib.Encryption.Licence;
-using GeneralToolkitLib.Encryption.Licence.DataModels;
+using GeneralToolkitLib.Converters;
+using GeneralToolkitLib.Encryption.License;
+using GeneralToolkitLib.Encryption.License.DataModels;
 
 namespace GeneralToolkitLib.UserControls
 {
-    public partial class LicenceInfoControl : UserControl
+    public partial class LicenseInfoControl : UserControl
     {
-        private LicenceDataModel _licenceData;
+        private LicenseDataModel _licenseData;
         public Action CreateRequest;
-        public Action EnterLicence;
+        public Action EnterLicense;
 
         public string NotRegisteredInfoText { get; set; }
 
-        public bool ValidLicence => LicenceService.Instance.ValidLicence;
+        public bool ValidLicense =>LicenseService.Instance.ValidLicense;
 
-        public LicenceInfoControl()
+        public LicenseInfoControl()
         {
             InitializeComponent();
         }
 
-        public void InitLicenceData(LicenceDataModel licenceData)
+        public void InitLicenseData(LicenseDataModel licenseData)
         {
-            _licenceData = licenceData;
+            _licenseData = licenseData;
             InitControlState();
         }
 
         private void InitControlState()
         {
-            btnCreateRequest.Enabled = !ValidLicence;
-            btnEnterLicence.Enabled = !ValidLicence;
+            btnCreateRequest.Enabled = !ValidLicense;
+            btnEnterLicense.Enabled = !ValidLicense;
 
-            if (_licenceData?.RegistrationData == null)
+            if (_licenseData?.RegistrationData == null)
                 return;
 
-            RegistrationDataModel registrationData = _licenceData.RegistrationData;
-            this.txtLicenceInfo.Text = this.ValidLicence ? this.GetRegistrationDetails(registrationData) : this.NotRegisteredInfoText;
+            RegistrationDataModel registrationData = _licenseData.RegistrationData;
+            txtLicenseInfo.Text = this.ValidLicense ? this.GetRegistrationDetails(registrationData) : this.NotRegisteredInfoText;
             txtComputerId.Text = registrationData.ComputerId.ComputerId;
         }
 
@@ -50,7 +51,7 @@ namespace GeneralToolkitLib.UserControls
             return sb.ToString();
         }
 
-        private void LicenceInfoControl_Load(object sender, EventArgs e)
+        private void LicenseInfoControl_Load(object sender, EventArgs e)
         {
             InitControlState();
         }
@@ -60,9 +61,9 @@ namespace GeneralToolkitLib.UserControls
             CreateRequest?.Invoke();
         }
 
-        private void btnEnterLicence_Click(object sender, EventArgs e)
+        private void btnEnterLicense_Click(object sender, EventArgs e)
         {
-            EnterLicence?.Invoke();
+            EnterLicense?.Invoke();
         }
     }
 }

@@ -9,13 +9,13 @@ using Serilog;
 
 namespace GeneralToolkitLib.Encryption.License
 {
-    public class LicenceService
+    public class LicenseService
     {
-        private static LicenceService _instance;
+        private static LicenseService _instance;
         private SerialNumberManager _serialNumberManager;
-        private const int MAX_FILE_SIZE = 4096;
-        private LicenceDataModel _licenceData;
-        private readonly LicenceServiceState _serviceState;
+        private const int MaxFileSize = 4096;
+        private LicenseDataModel _licenseData;
+        private readonly LicenseServiceState _serviceState;
         private bool _initializing;
         public event EventHandler OnInitComplete;
 
@@ -24,12 +24,12 @@ namespace GeneralToolkitLib.Encryption.License
             get { return !_initializing; }
         }
 
-        public bool ValidLicence
+        public bool ValidLicense
         {
             get
             {
                 if (!_serviceState.Validated)
-                    this.ValidateLicence();
+                    this.ValidateLicense();
 
                 return _serviceState.Valid;
             }
@@ -39,17 +39,17 @@ namespace GeneralToolkitLib.Encryption.License
         {
             get
             {
-                if (!_initializing && _licenceData != null)
-                    return _licenceData.RegistrationKey;
+                if (!_initializing && _licenseData != null)
+                    return _licenseData.RegistrationKey;
                 return null;
             }
         }
 
-        public LicenceDataModel LicenceData => _licenceData;
+        public LicenseDataModel LicenseData => _licenseData;
 
-        private LicenceService()
+        private LicenseService()
         {
-            _serviceState = new LicenceServiceState();
+            _serviceState = new LicenseServiceState();
             LoadSystemInfo();
         }
 
@@ -69,9 +69,9 @@ namespace GeneralToolkitLib.Encryption.License
             }
 
 
-            RSA_AsymetricEncryption rsaAsymetricEncryption = new RSA_AsymetricEncryption();
+            RsaAsymmetricEncryption rsaAsymmetricEncryption = new RsaAsymmetricEncryption();
             RSAKeySetIdentity rsaPublicKeySetIdentity = new RSAKeySetIdentity("", pubKey);
-            RSAParameters rsaPublicKey = rsaAsymetricEncryption.ParseRSAPublicKeyOnlyInfo(rsaPublicKeySetIdentity);
+            RSAParameters rsaPublicKey = rsaAsymmetricEncryption.ParseRSAPublicKeyOnlyInfo(rsaPublicKeySetIdentity);
             _serialNumberManager = new SerialNumberManager(rsaPublicKey, app);
         }
 
@@ -92,17 +92,22 @@ namespace GeneralToolkitLib.Encryption.License
             OnInitComplete?.Invoke(this, new EventArgs());
         }
 
-        public void ValidateLicence()
+        public void ValidateLicense()
         {
             if (_serialNumberManager == null)
                 return;
 
-            _serialNumberManager.LicenceData = _licenceData;
+            _serialNumberManager.LicenseData = _licenseData;
             _serviceState.Validated = true;
             _serviceState.Valid = _serialNumberManager.ValidateRegistrationData();
         }
 
-        public bool LoadLicenceFromFile(string filename)
+        public SerialNumberManager GetSerialNumberManager()
+        {
+            return _serialNumberManager;
+        }
+
+        public bool LoadLicenseFromFile(string filename)
         {
             FileStream fs = null;
             try
@@ -111,23 +116,23 @@ namespace GeneralToolkitLib.Encryption.License
                     return false;
 
                 fs = File.OpenRead(filename);
-                if (fs.Length > MAX_FILE_SIZE)
-                    throw new Exception("Invalid length of licence file");
+                if (fs.Length > MaxFileSize)
+                    throw new Exception("Invalid length of license file");
 
                 TextReader tr = new StreamReader(fs);
-                string licenceBase64 = tr.ReadToEnd();
+                string licenseBase64 = tr.ReadToEnd();
                 fs.Close();
 
-                _licenceData = ObjectSerializer.DeserializeLicenceDataFromString(licenceBase64);
+                _licenseData = ObjectSerializer.DeserializeLicenseDataFromString(licenseBase64);
 
                 _serviceState.Valid = false;
                 _serviceState.Validated = false;
 
-                return _licenceData != null;
+                return _licenseData != null;
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "LoadLicenceFromFile");
+                Log.Error(ex, "LoadLicenseFromFile");
             }
             finally
             {
@@ -137,9 +142,9 @@ namespace GeneralToolkitLib.Encryption.License
             return false;
         }
 
-        public static LicenceService Instance => _instance ?? (_instance = new LicenceService());
+        public static LicenseService Instance => _instance ?? (_instance = new LicenseService());
 
-        internal class LicenceServiceState
+        internal class LicenseServiceState
         {
             public bool Validated;
             public bool Valid;

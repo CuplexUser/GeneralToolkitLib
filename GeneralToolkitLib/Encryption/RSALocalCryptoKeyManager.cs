@@ -1,14 +1,14 @@
 ﻿using System.Security.Cryptography;
-using GeneralToolkitLib.Encryption.Licence.StaticData;
+using GeneralToolkitLib.Encryption.License.StaticData;
 
 namespace GeneralToolkitLib.Encryption
 {
-    internal static class RSALocalCryptoKeyManager
+    internal static class RsaLocalCryptoKeyManager
     {
         public static RSAParameters GetAssemblyRsaParameters()
         {
-            RSA_AsymetricEncryption rsaAsymetricEncryption = new RSA_AsymetricEncryption();
-            RSAParameters rsaParameters = rsaAsymetricEncryption.ParseRSAKeyInfo(GetLocalKeySetIdentity());
+            RsaAsymmetricEncryption rsaAsymmetricEncryption = new RsaAsymmetricEncryption();
+            RSAParameters rsaParameters = rsaAsymmetricEncryption.ParseRSAKeyInfo(GetLocalKeySetIdentity());
 
             return rsaParameters;
         }

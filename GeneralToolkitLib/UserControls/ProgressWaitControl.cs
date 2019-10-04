@@ -34,7 +34,7 @@ namespace GeneralToolkitLib.UserControls
             set
             {
                 timerPBar.Enabled = value;
-                ReserSetWaitStateStatus(_active != value);
+                SetWaitStateStatus(_active != value);
                 _active = value;
             }
         }
@@ -53,7 +53,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        private void ReserSetWaitStateStatus(bool reset)
+        private void SetWaitStateStatus(bool reset)
         {
             if (reset)
             {
@@ -78,7 +78,10 @@ namespace GeneralToolkitLib.UserControls
 
         private void timerPBar_Tick(object sender, EventArgs e)
         {
-            RenderWaitState();
+            if (!DesignMode)
+            {
+                RenderWaitState();
+            }
         }
 
         protected override void OnResize(EventArgs e)
