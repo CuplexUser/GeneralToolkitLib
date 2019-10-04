@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj": {}
+    "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj": {}
   },
   "projects": {
-    "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj": {
+    "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
+        "projectUniqueName": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
         "projectName": "GeneralToolkitLib",
-        "projectPath": "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
+        "projectPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
         "packagesPath": "C:\\Users\\iddt\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\obj\\",
+        "outputPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -36,11 +36,11 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[9.0.0, )"
             },
             "Autofac": {
               "target": "Package",
-              "version": "[4.9.2, )"
+              "version": "[4.9.4, )"
             },
             "AutofacSerilogIntegration": {
               "target": "Package",
@@ -48,7 +48,7 @@
             },
             "JetBrains.Annotations": {
               "target": "Package",
-              "version": "[2019.1.1, )"
+              "version": "[2019.1.3, )"
             },
             "MoreLinq.Source.MoreEnumerable.DistinctBy": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -90,7 +90,7 @@
             },
             "morelinq": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.2.0, )"
             },
             "protobuf-net": {
               "target": "Package",

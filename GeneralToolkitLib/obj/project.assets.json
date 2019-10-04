@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "Autofac/4.9.2": {
+      "Autofac/4.9.4": {
         "type": "package",
         "compile": {
           "lib/net45/Autofac.dll": {}
@@ -24,7 +24,7 @@
           "lib/net45/AutofacSerilogIntegration.dll": {}
         }
       },
-      "AutoMapper/8.1.1": {
+      "AutoMapper/9.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -36,7 +36,7 @@
           "lib/net461/AutoMapper.dll": {}
         }
       },
-      "JetBrains.Annotations/2019.1.1": {
+      "JetBrains.Annotations/2019.1.3": {
         "type": "package",
         "compile": {
           "lib/net20/JetBrains.Annotations.dll": {}
@@ -45,7 +45,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.1.1": {
+      "morelinq/3.2.0": {
         "type": "package",
         "dependencies": {
           "System.ValueTuple": "4.4.0"
@@ -210,7 +210,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win": {
-      "Autofac/4.9.2": {
+      "Autofac/4.9.4": {
         "type": "package",
         "compile": {
           "lib/net45/Autofac.dll": {}
@@ -232,7 +232,7 @@
           "lib/net45/AutofacSerilogIntegration.dll": {}
         }
       },
-      "AutoMapper/8.1.1": {
+      "AutoMapper/9.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -244,7 +244,7 @@
           "lib/net461/AutoMapper.dll": {}
         }
       },
-      "JetBrains.Annotations/2019.1.1": {
+      "JetBrains.Annotations/2019.1.3": {
         "type": "package",
         "compile": {
           "lib/net20/JetBrains.Annotations.dll": {}
@@ -253,7 +253,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.1.1": {
+      "morelinq/3.2.0": {
         "type": "package",
         "dependencies": {
           "System.ValueTuple": "4.4.0"
@@ -418,7 +418,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x64": {
-      "Autofac/4.9.2": {
+      "Autofac/4.9.4": {
         "type": "package",
         "compile": {
           "lib/net45/Autofac.dll": {}
@@ -440,7 +440,7 @@
           "lib/net45/AutofacSerilogIntegration.dll": {}
         }
       },
-      "AutoMapper/8.1.1": {
+      "AutoMapper/9.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -452,7 +452,7 @@
           "lib/net461/AutoMapper.dll": {}
         }
       },
-      "JetBrains.Annotations/2019.1.1": {
+      "JetBrains.Annotations/2019.1.3": {
         "type": "package",
         "compile": {
           "lib/net20/JetBrains.Annotations.dll": {}
@@ -461,7 +461,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.1.1": {
+      "morelinq/3.2.0": {
         "type": "package",
         "dependencies": {
           "System.ValueTuple": "4.4.0"
@@ -626,7 +626,7 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x86": {
-      "Autofac/4.9.2": {
+      "Autofac/4.9.4": {
         "type": "package",
         "compile": {
           "lib/net45/Autofac.dll": {}
@@ -648,7 +648,7 @@
           "lib/net45/AutofacSerilogIntegration.dll": {}
         }
       },
-      "AutoMapper/8.1.1": {
+      "AutoMapper/9.0.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp"
@@ -660,7 +660,7 @@
           "lib/net461/AutoMapper.dll": {}
         }
       },
-      "JetBrains.Annotations/2019.1.1": {
+      "JetBrains.Annotations/2019.1.3": {
         "type": "package",
         "compile": {
           "lib/net20/JetBrains.Annotations.dll": {}
@@ -669,7 +669,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.1.1": {
+      "morelinq/3.2.0": {
         "type": "package",
         "dependencies": {
           "System.ValueTuple": "4.4.0"
@@ -835,14 +835,14 @@
     }
   },
   "libraries": {
-    "Autofac/4.9.2": {
-      "sha512": "lfCcNOzU97f2WFtdo/+SkR0XtpdH20QA5Ob/T2Iv027wFMvDk7EZZ2oj6ERtWL+LBfPTOrbk9zyLj6Okx2CoHA==",
+    "Autofac/4.9.4": {
+      "sha512": "dYiDG4yoV7GDCoOc66d1sqMmg2gwDyomHKgATuMfhFzYxVpWEltToHVHXI3I9vOEvIXE55S4OZPY0ldiZmZtpA==",
       "type": "package",
-      "path": "autofac/4.9.2",
+      "path": "autofac/4.9.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "autofac.4.9.2.nupkg.sha512",
+        "autofac.4.9.4.nupkg.sha512",
         "autofac.nuspec",
         "lib/net45/Autofac.dll",
         "lib/net45/Autofac.pdb",
@@ -868,14 +868,14 @@
         "lib/netstandard1.1/AutofacSerilogIntegration.dll"
       ]
     },
-    "AutoMapper/8.1.1": {
-      "sha512": "GKBliBukkLG0z/U0T4Jy+yEpr5bKDImQ9nEy/T8jqNulwNkWDjiEWa9TL4yCxIhleDbmVmw2xYSaJ3Eb2OcSUg==",
+    "AutoMapper/9.0.0": {
+      "sha512": "xCqvoxT4HIrNY/xlXG9W+BA/awdrhWvMTKTK/igkGSRbhOhpl3Q8O8Gxlhzjc9JsYqE7sS6AxgyuUUvZ6R5/Bw==",
       "type": "package",
-      "path": "automapper/8.1.1",
+      "path": "automapper/9.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "automapper.8.1.1.nupkg.sha512",
+        "automapper.9.0.0.nupkg.sha512",
         "automapper.nuspec",
         "lib/net461/AutoMapper.dll",
         "lib/net461/AutoMapper.pdb",
@@ -885,14 +885,14 @@
         "lib/netstandard2.0/AutoMapper.xml"
       ]
     },
-    "JetBrains.Annotations/2019.1.1": {
-      "sha512": "y4RFn+HZ7BekqIx+uXuVAvh80quYNiu86oRG2QztmFXQ2mm1lprb7xNawZdFfLxBAh8BQUkSQdO0Itanal8DbQ==",
+    "JetBrains.Annotations/2019.1.3": {
+      "sha512": "E0x48BwZJKoNMNCekWGKsV4saQS89lf58ydT2szseV44CMYIbaHXjc7+305WLw6up3ibZN9yH6QdGSZo5tQhLg==",
       "type": "package",
-      "path": "jetbrains.annotations/2019.1.1",
+      "path": "jetbrains.annotations/2019.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "jetbrains.annotations.2019.1.1.nupkg.sha512",
+        "jetbrains.annotations.2019.1.3.nupkg.sha512",
         "jetbrains.annotations.nuspec",
         "lib/net20/JetBrains.Annotations.dll",
         "lib/net20/JetBrains.Annotations.xml",
@@ -906,13 +906,14 @@
         "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
       ]
     },
-    "morelinq/3.1.1": {
-      "sha512": "BZzKFYIGKe84NUBkxKfug/dQEE5fpixYlZxkgqSH/yAvlZ7Fhpkdts9ui1ENaATsJvLz4qrtWLYlwLVP9Bc7jA==",
+    "morelinq/3.2.0": {
+      "sha512": "Anb2PApG8NYVXR2tG3kYje9E3pNFkyjeTtvhTzaLtCIBs2v1KB3nGuwmsh/froF4TPwqj1Uy9pNadreairnpZQ==",
       "type": "package",
-      "path": "morelinq/3.1.1",
+      "path": "morelinq/3.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "COPYING.txt",
         "lib/net451/MoreLinq.dll",
         "lib/net451/MoreLinq.pdb",
         "lib/net451/MoreLinq.xml",
@@ -922,7 +923,7 @@
         "lib/netstandard2.0/MoreLinq.dll",
         "lib/netstandard2.0/MoreLinq.pdb",
         "lib/netstandard2.0/MoreLinq.xml",
-        "morelinq.3.1.1.nupkg.sha512",
+        "morelinq.3.2.0.nupkg.sha512",
         "morelinq.nuspec"
       ]
     },
@@ -1153,10 +1154,10 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "AutoMapper >= 8.1.1",
-      "Autofac >= 4.9.2",
+      "AutoMapper >= 9.0.0",
+      "Autofac >= 4.9.4",
       "AutofacSerilogIntegration >= 2.0.0",
-      "JetBrains.Annotations >= 2019.1.1",
+      "JetBrains.Annotations >= 2019.1.3",
       "MoreLinq.Source.MoreEnumerable.DistinctBy >= 1.0.2",
       "Serilog >= 2.8.0",
       "Serilog.Enrichers.Thread >= 3.1.0",
@@ -1166,7 +1167,7 @@
       "Serilog.Sinks.PeriodicBatching >= 2.2.0",
       "Serilog.Sinks.RollingFile >= 3.3.0",
       "Serilog.Sinks.Trace >= 2.1.0",
-      "morelinq >= 3.1.1",
+      "morelinq >= 3.2.0",
       "protobuf-net >= 2.4.0"
     ]
   },
@@ -1176,11 +1177,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
+      "projectUniqueName": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
       "projectName": "GeneralToolkitLib",
-      "projectPath": "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
+      "projectPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
       "packagesPath": "C:\\Users\\iddt\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub-Repositories\\C-Projects\\GeneralToolkitLib\\GeneralToolkitLib\\obj\\",
+      "outputPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1205,11 +1206,11 @@
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
-            "version": "[8.1.1, )"
+            "version": "[9.0.0, )"
           },
           "Autofac": {
             "target": "Package",
-            "version": "[4.9.2, )"
+            "version": "[4.9.4, )"
           },
           "AutofacSerilogIntegration": {
             "target": "Package",
@@ -1217,7 +1218,7 @@
           },
           "JetBrains.Annotations": {
             "target": "Package",
-            "version": "[2019.1.1, )"
+            "version": "[2019.1.3, )"
           },
           "MoreLinq.Source.MoreEnumerable.DistinctBy": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -1259,7 +1260,7 @@
           },
           "morelinq": {
             "target": "Package",
-            "version": "[3.1.1, )"
+            "version": "[3.2.0, )"
           },
           "protobuf-net": {
             "target": "Package",
