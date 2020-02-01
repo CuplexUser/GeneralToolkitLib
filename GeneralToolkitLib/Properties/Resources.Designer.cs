@@ -59,5 +59,14 @@ namespace GeneralToolkitLib.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress Information..
+        /// </summary>
+        internal static string General_Progress_Information_ {
+            get {
+                return ResourceManager.GetString("General_Progress_Information_", resourceCulture);
+            }
+        }
     }
 }

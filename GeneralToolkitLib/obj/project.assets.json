@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.7.2": {
+    ".NETFramework,Version=v4.8": {
       "Autofac/4.9.4": {
         "type": "package",
         "compile": {
@@ -11,29 +11,17 @@
           "lib/net45/Autofac.dll": {}
         }
       },
-      "AutofacSerilogIntegration/2.0.0": {
+      "AutofacSerilogIntegration/2.1.0": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.0.0",
-          "Serilog": "2.0.0"
+          "Serilog": "2.3.0"
         },
         "compile": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
         },
         "runtime": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
-        }
-      },
-      "AutoMapper/9.0.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp"
-        ],
-        "compile": {
-          "lib/net461/AutoMapper.dll": {}
-        },
-        "runtime": {
-          "lib/net461/AutoMapper.dll": {}
         }
       },
       "JetBrains.Annotations/2019.1.3": {
@@ -45,28 +33,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.2.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ValueTuple": "4.4.0"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Data",
-          "System.Data.DataSetExtensions",
-          "System.Xml"
-        ],
-        "compile": {
-          "lib/net451/MoreLinq.dll": {}
-        },
-        "runtime": {
-          "lib/net451/MoreLinq.dll": {}
-        }
-      },
-      "MoreLinq.Source.MoreEnumerable.DistinctBy/1.0.2": {
-        "type": "package"
-      },
-      "protobuf-net/2.4.0": {
+      "protobuf-net/2.4.4": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Configuration",
@@ -80,7 +47,7 @@
           "lib/net40/protobuf-net.dll": {}
         }
       },
-      "Serilog/2.8.0": {
+      "Serilog/2.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -143,7 +110,7 @@
           "lib/net45/Serilog.Sinks.EventLog.dll": {}
         }
       },
-      "Serilog.Sinks.File/4.0.0": {
+      "Serilog.Sinks.File/4.1.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.5.0"
@@ -194,22 +161,10 @@
         },
         "runtime": {
           "lib/net45/Serilog.Sinks.Trace.dll": {}
-        }
-      },
-      "System.ValueTuple/4.4.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net47/System.ValueTuple.dll": {}
-        },
-        "runtime": {
-          "lib/net47/System.ValueTuple.dll": {}
         }
       }
     },
-    ".NETFramework,Version=v4.7.2/win": {
+    ".NETFramework,Version=v4.8/win": {
       "Autofac/4.9.4": {
         "type": "package",
         "compile": {
@@ -219,29 +174,17 @@
           "lib/net45/Autofac.dll": {}
         }
       },
-      "AutofacSerilogIntegration/2.0.0": {
+      "AutofacSerilogIntegration/2.1.0": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.0.0",
-          "Serilog": "2.0.0"
+          "Serilog": "2.3.0"
         },
         "compile": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
         },
         "runtime": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
-        }
-      },
-      "AutoMapper/9.0.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp"
-        ],
-        "compile": {
-          "lib/net461/AutoMapper.dll": {}
-        },
-        "runtime": {
-          "lib/net461/AutoMapper.dll": {}
         }
       },
       "JetBrains.Annotations/2019.1.3": {
@@ -253,28 +196,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.2.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ValueTuple": "4.4.0"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Data",
-          "System.Data.DataSetExtensions",
-          "System.Xml"
-        ],
-        "compile": {
-          "lib/net451/MoreLinq.dll": {}
-        },
-        "runtime": {
-          "lib/net451/MoreLinq.dll": {}
-        }
-      },
-      "MoreLinq.Source.MoreEnumerable.DistinctBy/1.0.2": {
-        "type": "package"
-      },
-      "protobuf-net/2.4.0": {
+      "protobuf-net/2.4.4": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Configuration",
@@ -288,7 +210,7 @@
           "lib/net40/protobuf-net.dll": {}
         }
       },
-      "Serilog/2.8.0": {
+      "Serilog/2.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -351,7 +273,7 @@
           "lib/net45/Serilog.Sinks.EventLog.dll": {}
         }
       },
-      "Serilog.Sinks.File/4.0.0": {
+      "Serilog.Sinks.File/4.1.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.5.0"
@@ -402,22 +324,10 @@
         },
         "runtime": {
           "lib/net45/Serilog.Sinks.Trace.dll": {}
-        }
-      },
-      "System.ValueTuple/4.4.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net47/System.ValueTuple.dll": {}
-        },
-        "runtime": {
-          "lib/net47/System.ValueTuple.dll": {}
         }
       }
     },
-    ".NETFramework,Version=v4.7.2/win-x64": {
+    ".NETFramework,Version=v4.8/win-x64": {
       "Autofac/4.9.4": {
         "type": "package",
         "compile": {
@@ -427,29 +337,17 @@
           "lib/net45/Autofac.dll": {}
         }
       },
-      "AutofacSerilogIntegration/2.0.0": {
+      "AutofacSerilogIntegration/2.1.0": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.0.0",
-          "Serilog": "2.0.0"
+          "Serilog": "2.3.0"
         },
         "compile": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
         },
         "runtime": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
-        }
-      },
-      "AutoMapper/9.0.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp"
-        ],
-        "compile": {
-          "lib/net461/AutoMapper.dll": {}
-        },
-        "runtime": {
-          "lib/net461/AutoMapper.dll": {}
         }
       },
       "JetBrains.Annotations/2019.1.3": {
@@ -461,28 +359,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.2.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ValueTuple": "4.4.0"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Data",
-          "System.Data.DataSetExtensions",
-          "System.Xml"
-        ],
-        "compile": {
-          "lib/net451/MoreLinq.dll": {}
-        },
-        "runtime": {
-          "lib/net451/MoreLinq.dll": {}
-        }
-      },
-      "MoreLinq.Source.MoreEnumerable.DistinctBy/1.0.2": {
-        "type": "package"
-      },
-      "protobuf-net/2.4.0": {
+      "protobuf-net/2.4.4": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Configuration",
@@ -496,7 +373,7 @@
           "lib/net40/protobuf-net.dll": {}
         }
       },
-      "Serilog/2.8.0": {
+      "Serilog/2.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -559,7 +436,7 @@
           "lib/net45/Serilog.Sinks.EventLog.dll": {}
         }
       },
-      "Serilog.Sinks.File/4.0.0": {
+      "Serilog.Sinks.File/4.1.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.5.0"
@@ -610,22 +487,10 @@
         },
         "runtime": {
           "lib/net45/Serilog.Sinks.Trace.dll": {}
-        }
-      },
-      "System.ValueTuple/4.4.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net47/System.ValueTuple.dll": {}
-        },
-        "runtime": {
-          "lib/net47/System.ValueTuple.dll": {}
         }
       }
     },
-    ".NETFramework,Version=v4.7.2/win-x86": {
+    ".NETFramework,Version=v4.8/win-x86": {
       "Autofac/4.9.4": {
         "type": "package",
         "compile": {
@@ -635,29 +500,17 @@
           "lib/net45/Autofac.dll": {}
         }
       },
-      "AutofacSerilogIntegration/2.0.0": {
+      "AutofacSerilogIntegration/2.1.0": {
         "type": "package",
         "dependencies": {
           "Autofac": "4.0.0",
-          "Serilog": "2.0.0"
+          "Serilog": "2.3.0"
         },
         "compile": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
         },
         "runtime": {
           "lib/net45/AutofacSerilogIntegration.dll": {}
-        }
-      },
-      "AutoMapper/9.0.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp"
-        ],
-        "compile": {
-          "lib/net461/AutoMapper.dll": {}
-        },
-        "runtime": {
-          "lib/net461/AutoMapper.dll": {}
         }
       },
       "JetBrains.Annotations/2019.1.3": {
@@ -669,28 +522,7 @@
           "lib/net20/JetBrains.Annotations.dll": {}
         }
       },
-      "morelinq/3.2.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ValueTuple": "4.4.0"
-        },
-        "frameworkAssemblies": [
-          "System",
-          "System.Data",
-          "System.Data.DataSetExtensions",
-          "System.Xml"
-        ],
-        "compile": {
-          "lib/net451/MoreLinq.dll": {}
-        },
-        "runtime": {
-          "lib/net451/MoreLinq.dll": {}
-        }
-      },
-      "MoreLinq.Source.MoreEnumerable.DistinctBy/1.0.2": {
-        "type": "package"
-      },
-      "protobuf-net/2.4.0": {
+      "protobuf-net/2.4.4": {
         "type": "package",
         "frameworkAssemblies": [
           "System.Configuration",
@@ -704,7 +536,7 @@
           "lib/net40/protobuf-net.dll": {}
         }
       },
-      "Serilog/2.8.0": {
+      "Serilog/2.9.0": {
         "type": "package",
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -767,7 +599,7 @@
           "lib/net45/Serilog.Sinks.EventLog.dll": {}
         }
       },
-      "Serilog.Sinks.File/4.0.0": {
+      "Serilog.Sinks.File/4.1.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.5.0"
@@ -818,18 +650,6 @@
         },
         "runtime": {
           "lib/net45/Serilog.Sinks.Trace.dll": {}
-        }
-      },
-      "System.ValueTuple/4.4.0": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "mscorlib"
-        ],
-        "compile": {
-          "ref/net47/System.ValueTuple.dll": {}
-        },
-        "runtime": {
-          "lib/net47/System.ValueTuple.dll": {}
         }
       }
     }
@@ -855,34 +675,18 @@
         "lib/netstandard2.0/Autofac.xml"
       ]
     },
-    "AutofacSerilogIntegration/2.0.0": {
-      "sha512": "m8IjK01G1WUPgj6hEhE5mXjnBc6q+gK39vdFEFb4fzJ4bYOQv3m0pf1Z0Sg6DninRzm/NR9zGjLuyiJ8ixsoWA==",
+    "AutofacSerilogIntegration/2.1.0": {
+      "sha512": "dkrAweCWRpGambAxGLa0pPRifYM/OidgercxZzDupcj5fFf+RovdkR7Vu5Tg+Ukfrs0j8ldAyH6DlNAaRQ1JdQ==",
       "type": "package",
-      "path": "autofacserilogintegration/2.0.0",
+      "path": "autofacserilogintegration/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "autofacserilogintegration.2.0.0.nupkg.sha512",
+        "autofacserilogintegration.2.1.0.nupkg.sha512",
         "autofacserilogintegration.nuspec",
         "lib/net45/AutofacSerilogIntegration.dll",
-        "lib/netstandard1.1/AutofacSerilogIntegration.dll"
-      ]
-    },
-    "AutoMapper/9.0.0": {
-      "sha512": "xCqvoxT4HIrNY/xlXG9W+BA/awdrhWvMTKTK/igkGSRbhOhpl3Q8O8Gxlhzjc9JsYqE7sS6AxgyuUUvZ6R5/Bw==",
-      "type": "package",
-      "path": "automapper/9.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "automapper.9.0.0.nupkg.sha512",
-        "automapper.nuspec",
-        "lib/net461/AutoMapper.dll",
-        "lib/net461/AutoMapper.pdb",
-        "lib/net461/AutoMapper.xml",
-        "lib/netstandard2.0/AutoMapper.dll",
-        "lib/netstandard2.0/AutoMapper.pdb",
-        "lib/netstandard2.0/AutoMapper.xml"
+        "lib/netstandard1.1/AutofacSerilogIntegration.dll",
+        "lib/netstandard2.0/AutofacSerilogIntegration.dll"
       ]
     },
     "JetBrains.Annotations/2019.1.3": {
@@ -906,43 +710,10 @@
         "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
       ]
     },
-    "morelinq/3.2.0": {
-      "sha512": "Anb2PApG8NYVXR2tG3kYje9E3pNFkyjeTtvhTzaLtCIBs2v1KB3nGuwmsh/froF4TPwqj1Uy9pNadreairnpZQ==",
+    "protobuf-net/2.4.4": {
+      "sha512": "EYZyqfSlroeRVC2cvyONwjFE6ji50d+0gsGXFha+Ij/ZzIBLFd4HJmlytlabSyeqJFz1RCIDvhIoe9+AEyx3bg==",
       "type": "package",
-      "path": "morelinq/3.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "COPYING.txt",
-        "lib/net451/MoreLinq.dll",
-        "lib/net451/MoreLinq.pdb",
-        "lib/net451/MoreLinq.xml",
-        "lib/netstandard1.0/MoreLinq.dll",
-        "lib/netstandard1.0/MoreLinq.pdb",
-        "lib/netstandard1.0/MoreLinq.xml",
-        "lib/netstandard2.0/MoreLinq.dll",
-        "lib/netstandard2.0/MoreLinq.pdb",
-        "lib/netstandard2.0/MoreLinq.xml",
-        "morelinq.3.2.0.nupkg.sha512",
-        "morelinq.nuspec"
-      ]
-    },
-    "MoreLinq.Source.MoreEnumerable.DistinctBy/1.0.2": {
-      "sha512": "5nvK0vyWMmPGsSETofUYox4D+4LMoGvUNY6rzb6EedG6YcJv83/q65cR9qIzC8Z2ZfLCqaCLqX5XyoTMVsB9hw==",
-      "type": "package",
-      "path": "morelinq.source.moreenumerable.distinctby/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "content/net35/MoreLinq/MoreEnumerable.DistinctBy.cs",
-        "morelinq.source.moreenumerable.distinctby.1.0.2.nupkg.sha512",
-        "morelinq.source.moreenumerable.distinctby.nuspec"
-      ]
-    },
-    "protobuf-net/2.4.0": {
-      "sha512": "j37MD1p1s9NdX8P5+IaY2J9p2382xiL1VP3mxYu0g+G/kf2YM2grFa1jJPO+0WDJNl1XhNPO0Q5yBEcbX77hBQ==",
-      "type": "package",
-      "path": "protobuf-net/2.4.0",
+      "path": "protobuf-net/2.4.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -963,33 +734,28 @@
         "lib/uap10.0/protobuf-net.dll",
         "lib/uap10.0/protobuf-net.pri",
         "lib/uap10.0/protobuf-net.xml",
-        "protobuf-net.2.4.0.nupkg.sha512",
+        "protobuf-net.2.4.4.nupkg.sha512",
         "protobuf-net.nuspec"
       ]
     },
-    "Serilog/2.8.0": {
-      "sha512": "zjuKXW5IQws43IHX7VY9nURsaCiBYh2kyJCWLJRSWrTsx/syBKHV8MibWe2A+QH3Er0AiwA+OJmO3DhFJDY1+A==",
+    "Serilog/2.9.0": {
+      "sha512": "QzcrD33A3+CsVvwi1I5CSei67ikQnkGrw7SscgL+vZTghaC2aNYg8fiUcedXHzKJFNjgje9rBjzwYGQTKEaXaA==",
       "type": "package",
-      "path": "serilog/2.8.0",
+      "path": "serilog/2.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/Serilog.dll",
-        "lib/net45/Serilog.pdb",
         "lib/net45/Serilog.xml",
         "lib/net46/Serilog.dll",
-        "lib/net46/Serilog.pdb",
         "lib/net46/Serilog.xml",
         "lib/netstandard1.0/Serilog.dll",
-        "lib/netstandard1.0/Serilog.pdb",
         "lib/netstandard1.0/Serilog.xml",
         "lib/netstandard1.3/Serilog.dll",
-        "lib/netstandard1.3/Serilog.pdb",
         "lib/netstandard1.3/Serilog.xml",
         "lib/netstandard2.0/Serilog.dll",
-        "lib/netstandard2.0/Serilog.pdb",
         "lib/netstandard2.0/Serilog.xml",
-        "serilog.2.8.0.nupkg.sha512",
+        "serilog.2.9.0.nupkg.sha512",
         "serilog.nuspec"
       ]
     },
@@ -1042,18 +808,23 @@
         "serilog.sinks.eventlog.nuspec"
       ]
     },
-    "Serilog.Sinks.File/4.0.0": {
-      "sha512": "vBj43RkAbeP1dzoPFR2+LfV5GevDRPDq6265JJBv223lMvT9rfdwe/S/I9ow7aZSLYKfw4qPDw6NW8YwjbDbvg==",
+    "Serilog.Sinks.File/4.1.0": {
+      "sha512": "U0b34w+ZikbqWEZ3ui7BdzxY/19zwrdhLtI3o6tfmLdD3oXxg7n2TZJjwCCTlKPgRuYic9CBWfrZevbb70mTaw==",
       "type": "package",
-      "path": "serilog.sinks.file/4.0.0",
+      "path": "serilog.sinks.file/4.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/Serilog.Sinks.File.dll",
+        "lib/net45/Serilog.Sinks.File.pdb",
         "lib/net45/Serilog.Sinks.File.xml",
         "lib/netstandard1.3/Serilog.Sinks.File.dll",
+        "lib/netstandard1.3/Serilog.Sinks.File.pdb",
         "lib/netstandard1.3/Serilog.Sinks.File.xml",
-        "serilog.sinks.file.4.0.0.nupkg.sha512",
+        "lib/netstandard2.0/Serilog.Sinks.File.dll",
+        "lib/netstandard2.0/Serilog.Sinks.File.pdb",
+        "lib/netstandard2.0/Serilog.Sinks.File.xml",
+        "serilog.sinks.file.4.1.0.nupkg.sha512",
         "serilog.sinks.file.nuspec"
       ]
     },
@@ -1105,70 +876,22 @@
         "serilog.sinks.trace.2.1.0.nupkg.sha512",
         "serilog.sinks.trace.nuspec"
       ]
-    },
-    "System.ValueTuple/4.4.0": {
-      "sha512": "BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
-      "type": "package",
-      "path": "system.valuetuple/4.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.ValueTuple.dll",
-        "lib/net461/System.ValueTuple.xml",
-        "lib/net47/System.ValueTuple.dll",
-        "lib/net47/System.ValueTuple.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.0/System.ValueTuple.dll",
-        "lib/netstandard1.0/System.ValueTuple.xml",
-        "lib/netstandard2.0/_._",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net461/System.ValueTuple.dll",
-        "ref/net461/System.ValueTuple.xml",
-        "ref/net47/System.ValueTuple.dll",
-        "ref/net47/System.ValueTuple.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard2.0/_._",
-        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
-        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.valuetuple.4.4.0.nupkg.sha512",
-        "system.valuetuple.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.7.2": [
-      "AutoMapper >= 9.0.0",
+    ".NETFramework,Version=v4.8": [
       "Autofac >= 4.9.4",
-      "AutofacSerilogIntegration >= 2.0.0",
+      "AutofacSerilogIntegration >= 2.1.0",
       "JetBrains.Annotations >= 2019.1.3",
-      "MoreLinq.Source.MoreEnumerable.DistinctBy >= 1.0.2",
-      "Serilog >= 2.8.0",
+      "Serilog >= 2.9.0",
       "Serilog.Enrichers.Thread >= 3.1.0",
       "Serilog.Sinks.Console >= 3.1.1",
       "Serilog.Sinks.EventLog >= 3.1.0",
-      "Serilog.Sinks.File >= 4.0.0",
+      "Serilog.Sinks.File >= 4.1.0",
       "Serilog.Sinks.PeriodicBatching >= 2.2.0",
       "Serilog.Sinks.RollingFile >= 3.3.0",
       "Serilog.Sinks.Trace >= 2.1.0",
-      "morelinq >= 3.2.0",
-      "protobuf-net >= 2.4.0"
+      "protobuf-net >= 2.4.4"
     ]
   },
   "packageFolders": {
@@ -1189,46 +912,36 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net472"
+        "net48"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net472": {
+        "net48": {
           "projectReferences": {}
         }
       }
     },
     "frameworks": {
-      "net472": {
+      "net48": {
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[9.0.0, )"
-          },
           "Autofac": {
             "target": "Package",
             "version": "[4.9.4, )"
           },
           "AutofacSerilogIntegration": {
             "target": "Package",
-            "version": "[2.0.0, )"
+            "version": "[2.1.0, )"
           },
           "JetBrains.Annotations": {
             "target": "Package",
             "version": "[2019.1.3, )"
           },
-          "MoreLinq.Source.MoreEnumerable.DistinctBy": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[1.0.2, )"
-          },
           "Serilog": {
             "target": "Package",
-            "version": "[2.8.0, )"
+            "version": "[2.9.0, )"
           },
           "Serilog.Enrichers.Thread": {
             "target": "Package",
@@ -1244,7 +957,7 @@
           },
           "Serilog.Sinks.File": {
             "target": "Package",
-            "version": "[4.0.0, )"
+            "version": "[4.1.0, )"
           },
           "Serilog.Sinks.PeriodicBatching": {
             "target": "Package",
@@ -1258,13 +971,9 @@
             "target": "Package",
             "version": "[2.1.0, )"
           },
-          "morelinq": {
-            "target": "Package",
-            "version": "[3.2.0, )"
-          },
           "protobuf-net": {
             "target": "Package",
-            "version": "[2.4.0, )"
+            "version": "[2.4.4, )"
           }
         }
       }

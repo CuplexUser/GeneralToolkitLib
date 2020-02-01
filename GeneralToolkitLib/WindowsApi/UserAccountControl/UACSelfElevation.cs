@@ -19,7 +19,7 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
         private bool _isElevated;
         private bool _isRunAsAdmin;
 
-        public bool IsApplicationRuningnWithAdminAccess => _isRunAsAdmin;
+        public bool IsApplicationRunningWithAdminAccess => _isRunAsAdmin;
 
         public bool IsElevated => _isElevated;
 
@@ -27,7 +27,7 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
 
         public bool CurrentUserInAdminGroup => _inAdminGroup;
 
-        public bool DisplayMessagBoxes { get; set; }
+        public bool DisplayMessageBoxes { get; set; }
 
         public Button UacButton { get; set; }
 
@@ -44,8 +44,8 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
             }
             catch (Exception ex)
             {
-                if (DisplayMessagBoxes)
-                    MessageBox.Show(ex.Message, "An error occurred in IsUserInAdminGroup", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (DisplayMessageBoxes)
+                    MessageBox.Show(ex.Message, @"An error occurred in IsUserInAdminGroup", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Log.Error(ex, "Error when calling IsUserInAdminGroup");
             }
@@ -56,8 +56,8 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
             }
             catch (Exception ex)
             {
-                if (DisplayMessagBoxes)
-                    MessageBox.Show(ex.Message, "An error occurred in IsRunAsAdmin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (DisplayMessageBoxes)
+                    MessageBox.Show(ex.Message, @"An error occurred in IsRunAsAdmin", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Log.Error(ex,"Error when calling IsRunAsAdmin");
             }
@@ -82,8 +82,8 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
                 }
                 catch (Exception ex)
                 {
-                    if (DisplayMessagBoxes)
-                        MessageBox.Show(ex.Message, "An error occurred in IsProcessElevated", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (DisplayMessageBoxes)
+                        MessageBox.Show(ex.Message, @"An error occurred in IsProcessElevated", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     Log.Error(ex,"Error when calling NativeMethods.SendMessage");
                 }
@@ -116,8 +116,8 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
                 }
                 catch (Exception ex)
                 {
-                    if (DisplayMessagBoxes)
-                        MessageBox.Show(ex.Message, "An error occurred in GetProcessIntegrityLevel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (DisplayMessageBoxes)
+                        MessageBox.Show(ex.Message, @"An error occurred in GetProcessIntegrityLevel", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     Log.Error(ex,"Error when calling GetProcessIntegrityLevel()");
                 }
@@ -151,7 +151,7 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
                 Application.Exit(); // Quit itself
                 return;
             }
-            if (DisplayMessagBoxes)
+            if (DisplayMessageBoxes)
                 MessageBox.Show("The process is running as administrator", "UAC");
             Log.Information("The process is running as administrator");
         }
@@ -161,7 +161,7 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
 
         public CSUACSelfElevation(bool displayMessagBoxes)
         {
-            DisplayMessagBoxes = displayMessagBoxes;
+            DisplayMessageBoxes = displayMessagBoxes;
         }
 
         /// <summary>

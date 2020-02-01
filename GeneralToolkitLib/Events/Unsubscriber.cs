@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GeneralToolkitLib.Events
 {
-    public class Unsubscriber<T> : IDisposable
+    public class Unsubscriber<T> where T : IDisposable
     {
         private readonly List<IObserver<T>> _observers;
         private readonly IObserver<T> _observer;
@@ -17,7 +17,13 @@ namespace GeneralToolkitLib.Events
         public void Dispose()
         {
             if (_observers.Contains(_observer))
+            {
                 _observers.Remove(_observer);
+                if (default(T) != null)
+                {
+                    default(T).Dispose();
+                }
+            }
         }
     }
 }

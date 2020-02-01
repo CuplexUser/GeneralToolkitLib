@@ -7,7 +7,7 @@ namespace GeneralToolkitLib.WindowsApi
 {
     public static class LoadSystemIcon
     {
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr LoadImage(
             IntPtr hinst,
             string lpszName,
