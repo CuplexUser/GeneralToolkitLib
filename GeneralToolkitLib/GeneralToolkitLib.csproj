@@ -44,7 +44,7 @@
     <ApplicationIcon>Resources\default.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SignKeys\keypair.snk</AssemblyOriginatorKeyFile>
@@ -256,7 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac">
-      <Version>4.9.4</Version>
+      <Version>5.1.2</Version>
     </PackageReference>
     <PackageReference Include="AutofacSerilogIntegration">
       <Version>2.1.0</Version>

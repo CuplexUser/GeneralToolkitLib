@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -14,6 +15,7 @@ namespace GeneralToolkitLib.Storage.Memory
             _encodedDataDictionary = new Dictionary<string, PasswordStorageItem>();
         }
 
+        [SecurityCritical]
         public void Set(string key, string password)
         {
             int encodingLength = Encoding.UTF8.GetByteCount(password);
@@ -36,6 +38,7 @@ namespace GeneralToolkitLib.Storage.Memory
             passwordStorageItem.PaddingLength = paddingLength;
         }
 
+        [SecurityCritical]
         public string Get(string key)
         {
             if (!_encodedDataDictionary.ContainsKey(key))
@@ -54,9 +57,27 @@ namespace GeneralToolkitLib.Storage.Memory
             public int PaddingLength;
         }
 
+        [SecurityCritical]
+        public void PurgeMemory()
+        {
+            if (_encodedDataDictionary.Count>0)
+            {
+                foreach(var key in _encodedDataDictionary.Keys)
+                {
+                    byte[] buffer = _encodedDataDictionary[key].Data;
+                    ProtectedMemory.Unprotect(buffer, MemoryProtectionScope.SameProcess);
+                    Array.Clear(buffer, 0, buffer.Length);
+                    _encodedDataDictionary[key].Data = null;
+                    _encodedDataDictionary[key].PaddingLength = 0;
+                }
+
+                _encodedDataDictionary.Clear();
+            }
+        }
+
         public void Dispose()
         {
-            _encodedDataDictionary.Clear();
+            _encodedDataDictionary.Clear();            
         }
     }
 }

@@ -53,4 +53,7 @@ D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\x64\Release\GeneralTo
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\x64\Release\GeneralToolkitLib.csproj.CopyComplete
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\x64\Release\GeneralToolkitLib.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\Serilog.Sinks.File.pdb
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\System.Threading.Tasks.Extensions.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\x64\Release\GeneralToolkitLib.csprojAssemblyReference.cache

@@ -38,6 +38,7 @@ D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Autofac.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Autofac.pdb
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\AutofacSerilogIntegration.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\JetBrains.Annotations.dll
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\protobuf-net.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Serilog.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Serilog.Enrichers.Thread.dll
@@ -48,6 +49,8 @@ D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Serilog.Sinks.F
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Serilog.Sinks.PeriodicBatching.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Serilog.Sinks.RollingFile.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\Serilog.Sinks.Trace.dll
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Debug\System.Threading.Tasks.Extensions.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.Properties.Resources.resources
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.UserControls.CreateAndVerifyOTP.resources
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.UserControls.CreateLicenseRequestControl.resources
@@ -57,4 +60,3 @@ D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitL
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.csproj.CopyComplete
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.pdb
-D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.csprojAssemblyReference.cache
