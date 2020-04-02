@@ -233,7 +233,7 @@ namespace GeneralToolkitLib.Encryption
                 aesAlg.Key = rfc2898DeriveBytes.GetBytes(32);
                 aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
-                // Create a cncrytor to perform the stream transform.
+                // Create AES Crypto Transform to be used in the CryptoStream transform function 
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 // Create the streams used for encryption.
@@ -276,7 +276,7 @@ namespace GeneralToolkitLib.Encryption
                 aesAlg.Key = rfc2898DeriveBytes.GetBytes(32);
                 aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
-                // Create a cncrytor to perform the stream transform.
+                // Create AES Crypto Transform to be used in the CryptoStream transform function 
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 // Create the streams used for encryption.
@@ -317,7 +317,7 @@ namespace GeneralToolkitLib.Encryption
                 aesAlg.Key = rfc2898DeriveBytes.GetBytes(32);
                 aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
-                // Create a cncrytor to perform the stream transform.
+                // Create AES Crypto Transform to be used in the CryptoStream transform function 
                 ICryptoTransform encrypt = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                 var ms = new MemoryStream();
@@ -359,7 +359,7 @@ namespace GeneralToolkitLib.Encryption
                     aesAlg.Key = rfc2898DeriveBytes.GetBytes(32);
                     aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
-                    // Create a decrytor to perform the stream transform.
+                    // Create AES Crypto Transform to be used in the Decryption CryptoStream transform function 
                     ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
                     // Create the streams used for decryption.

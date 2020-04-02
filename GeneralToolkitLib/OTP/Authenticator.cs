@@ -1,23 +1,35 @@
 ﻿using System;
 using System.Security.Cryptography;
 using GeneralToolkitLib.Converters;
+using GeneralToolkitLib.Utility.RandomGenerator;
 
 namespace GeneralToolkitLib.OTP
 {
     public abstract class Authenticator
     {
-        private static readonly RNGCryptoServiceProvider Random = new RNGCryptoServiceProvider(); // Is Thread-Safe
-        private const int KeyLength = 16;
-        private const string AvailableKeyChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+        //private readonly RNGCryptoServiceProvider Random = new RNGCryptoServiceProvider(); // Is Thread-Safe
+        //private int KeyLength = 16;
+        //private const string AvailableKeyChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
-        public static string GenerateKey()
+        public enum SecretKeyLength
         {
-            var keyChars = new char[KeyLength];
-            for (int i = 0; i < keyChars.Length; i++)
+            n16Bytes = 16,
+            n24Bytes = 24,
+            n32bytes = 32,
+        }
+
+        
+        public static string GenerateKey(SecretKeyLength skLength)
+        {
+            int keyLength = (int)skLength;
+            string generatedKey;
+
+            using (var secureRng = new SecureRandomGenerator())
             {
-                keyChars[i] = AvailableKeyChars[RandomInt(AvailableKeyChars.Length)];
+                generatedKey = secureRng.GetBase32String(keyLength);
             }
-            return new String(keyChars);
+
+            return generatedKey;
         }
 
         protected string GetCodeInternal(string secret, ulong challengeValue)
@@ -26,7 +38,7 @@ namespace GeneralToolkitLib.OTP
             byte[] challenge = new byte[8];
             for (int j = 7; j >= 0; j--)
             {
-                challenge[j] = (byte) ((int) chlg & 0xff);
+                challenge[j] = (byte)((int)chlg & 0xff);
                 chlg >>= 8;
             }
 
@@ -57,22 +69,14 @@ namespace GeneralToolkitLib.OTP
 
         protected bool ConstantTimeEquals(string a, string b)
         {
-            uint diff = (uint) a.Length ^ (uint) b.Length;
+            uint diff = (uint)a.Length ^ (uint)b.Length;
 
             for (int i = 0; i < a.Length && i < b.Length; i++)
             {
-                diff |= (uint) a[i] ^ b[i];
+                diff |= (uint)a[i] ^ b[i];
             }
 
             return diff == 0;
-        }
-
-        protected static int RandomInt(int max)
-        {
-            var randomBytes = new byte[4];
-            Random.GetBytes(randomBytes);
-
-            return Math.Abs((int) BitConverter.ToUInt32(randomBytes, 0) % max);
         }
     }
 }

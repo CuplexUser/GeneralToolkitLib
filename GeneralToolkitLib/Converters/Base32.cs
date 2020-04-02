@@ -120,7 +120,7 @@ namespace GeneralToolkitLib.Converters
             if (base32String == null)
                 return null;
             // Check if empty
-            else if (base32String == string.Empty)
+            if (base32String == string.Empty)
                 return new byte[0];
 
             // Convert to upper-case
@@ -154,7 +154,7 @@ namespace GeneralToolkitLib.Converters
 
                 // Check if found
                 if (currentBase32Byte < 0)
-                    throw new ArgumentException(string.Format("Specified string is not valid Base32 format because character \"{0}\" does not exist in Base32 alphabet", base32String[base32Position]));
+                    throw new ArgumentException($"Specified string is not valid Base32 format because character \"{base32String[base32Position]}\" does not exist in Base32 alphabet");
 
                 // Calculate the number of bits we can extract out of current input character to fill missing bits in the output byte
                 int bitsAvailableInByte = Math.Min(OutByteSize - base32SubPosition, InByteSize - outputByteSubPosition);

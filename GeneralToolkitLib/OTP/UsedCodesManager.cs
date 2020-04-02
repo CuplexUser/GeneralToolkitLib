@@ -7,40 +7,39 @@ namespace GeneralToolkitLib.OTP
     /// <summary>
     /// Local, thread-save used codes manager implementation
     /// </summary>
-    public class UsedCodesManager : IUsedCodesManager
+    public class UsedCodesManager : IUsedCodesManager, IDisposable
     {
         internal sealed class UsedCode
         {
-            public UsedCode(long timestamp, String code, object user)
+            public UsedCode(long timestamp, string code, object user)
             {
-                this.UseDate = DateTime.Now;
-                this.Code = code;
-                this.Timestamp = timestamp;
-                this.User = user;
+                UseDate = DateTime.Now;
+                Code = code;
+                Timestamp = timestamp;
+                User = user;
             }
 
             internal DateTime UseDate { get; private set; }
-            internal long Timestamp { get; private set; }
-            internal String Code { get; private set; }
-            internal object User { get; private set; }
+            internal long Timestamp { get; }
+            internal string Code { get; }
+            internal object User { get; }
 
             public override bool Equals(object obj)
             {
                 if (ReferenceEquals(this, obj))
                     return true;
 
-                var other = obj as UsedCode;
-                return (other != null) && this.Code.Equals(other.Code) && this.Timestamp.Equals(other.Timestamp) && this.User.Equals(other.User);
+                return (obj is UsedCode other) && Code.Equals(other.Code) && Timestamp.Equals(other.Timestamp) && User.Equals(other.User);
             }
 
             public override string ToString()
             {
-                return String.Format("{0}: {1}", this.Timestamp, this.Code);
+                return $"{Timestamp}: {Code}";
             }
 
             public override int GetHashCode()
             {
-                return this.Code.GetHashCode() + (this.Timestamp.GetHashCode() + this.User.GetHashCode() * 17) * 17;
+                return Code.GetHashCode() + (Timestamp.GetHashCode() + User.GetHashCode() * 17) * 17;
             }
         }
 
@@ -51,10 +50,10 @@ namespace GeneralToolkitLib.OTP
 
         public UsedCodesManager()
         {
-            this.codes = new Queue<UsedCode>();
-            this.cleaner = new Timer(TimeSpan.FromMinutes(5).TotalMilliseconds);
-            this.cleaner.Elapsed += this.cleaner_Elapsed;
-            this.cleaner.Start();
+            codes = new Queue<UsedCode>();
+            cleaner = new Timer(TimeSpan.FromMinutes(5).TotalMilliseconds);
+            cleaner.Elapsed += cleaner_Elapsed;
+            cleaner.Start();
         }
 
         private void cleaner_Elapsed(object sender, ElapsedEventArgs e)
@@ -63,16 +62,16 @@ namespace GeneralToolkitLib.OTP
 
             try
             {
-                this.rwlock.AcquireWriterLock(this.lockingTimeout);
+                rwlock.AcquireWriterLock(lockingTimeout);
 
-                while (this.codes.Count > 0 && this.codes.Peek().UseDate < timeToClean)
+                while (codes.Count > 0 && codes.Peek().UseDate < timeToClean)
                 {
-                    this.codes.Dequeue();
+                    codes.Dequeue();
                 }
             }
             finally
             {
-                this.rwlock.ReleaseWriterLock();
+                rwlock.ReleaseWriterLock();
             }
         }
 
@@ -80,13 +79,13 @@ namespace GeneralToolkitLib.OTP
         {
             try
             {
-                this.rwlock.AcquireWriterLock(this.lockingTimeout);
+                rwlock.AcquireWriterLock(lockingTimeout);
 
-                this.codes.Enqueue(new UsedCode(timestamp, code, user));
+                codes.Enqueue(new UsedCode(timestamp, code, user));
             }
             finally
             {
-                this.rwlock.ReleaseWriterLock();
+                rwlock.ReleaseWriterLock();
             }
         }
 
@@ -94,14 +93,19 @@ namespace GeneralToolkitLib.OTP
         {
             try
             {
-                this.rwlock.AcquireReaderLock(this.lockingTimeout);
+                rwlock.AcquireReaderLock(lockingTimeout);
 
-                return this.codes.Contains(new UsedCode(timestamp, code, user));
+                return codes.Contains(new UsedCode(timestamp, code, user));
             }
             finally
             {
-                this.rwlock.ReleaseReaderLock();
+                rwlock.ReleaseReaderLock();
             }
+        }
+
+        public void Dispose()
+        {
+            cleaner?.Dispose();
         }
     }
 }

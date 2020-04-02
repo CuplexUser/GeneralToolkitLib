@@ -13,7 +13,7 @@ namespace GeneralToolkitLib.OTP
         {
             if (windowSize <= 0) throw new ArgumentException("look-ahead window size must be positive");
 
-            this.WindowSize = windowSize;
+            WindowSize = windowSize;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace GeneralToolkitLib.OTP
         {
             ulong successfulSequenceNumber = 0uL;
 
-            return this.CheckCode(secret, code, counter, out successfulSequenceNumber);
+            return CheckCode(secret, code, counter, out successfulSequenceNumber);
         }
 
         /// <summary>
@@ -54,10 +54,10 @@ namespace GeneralToolkitLib.OTP
             var codeMatch = false;
             ulong successfulSequenceNumber = 0uL;
 
-            for (uint i = 0; i <= this.WindowSize; i++)
+            for (uint i = 0; i <= WindowSize; i++)
             {
                 ulong checkCounter = counter + i;
-                if (ConstantTimeEquals(this.GetCode(secret, checkCounter), code))
+                if (ConstantTimeEquals(GetCode(secret, checkCounter), code))
                 {
                     codeMatch = true;
                     successfulSequenceNumber = checkCounter;

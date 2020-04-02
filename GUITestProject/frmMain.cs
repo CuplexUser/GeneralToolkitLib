@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Forms;
+using GeneralToolkitLib.Converters;
+using GeneralToolkitLib.OTP;
 
 namespace GUITestProject
 {
@@ -17,7 +20,7 @@ namespace GUITestProject
 
         private void openCreateSQLFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCreateSQL formCreateSql= new FormCreateSQL();
+            FormCreateSQL formCreateSql = new FormCreateSQL();
             formCreateSql.Show(this);
         }
 
@@ -28,13 +31,45 @@ namespace GUITestProject
 
         private void btnGenerateSharedSecret_Click(object sender, EventArgs e)
         {
-            if(txtOTPLabel.Text.Length == 0)
+            if (txtOTPLabel.Text.Length == 0)
             {
                 MessageBox.Show("Label is missing!");
                 return;
             }
 
-            createAndVerifyOTP1.Init(txtOTPLabel.Text);
+            Authenticator.SecretKeyLength keyLengthEnumVal = Authenticator.SecretKeyLength.n16Bytes;
+
+            if (rb24.Checked)
+            {
+                keyLengthEnumVal = Authenticator.SecretKeyLength.n24Bytes;
+            }
+            else if (rb32.Checked)
+            {
+                keyLengthEnumVal = Authenticator.SecretKeyLength.n32bytes;
+            }
+
+            createAndVerifyOTP1.Init(txtOTPLabel.Text, keyLengthEnumVal);
+        }
+
+        private void btnVerifyEncodingAndImport_Click(object sender, EventArgs e)
+        {
+            string importKey = txtImportSecret.Text;
+            byte[] keyBytes;
+            try
+            {
+                keyBytes = Base32Encoding.ToBytes(importKey);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid key format!", "Unable to import key", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+                txtImportSecret.SelectAll();
+                txtImportSecret.Select();
+                return;
+            }
+
+            createAndVerifyOTP1.InitWithExistingBase32Key(txtOTPLabel.Text, Base32.ToBase32String(keyBytes));
+            txtImportSecret.Text = "";
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using GeneralToolkitLib.Storage;
@@ -14,6 +14,23 @@ namespace UnitTests
     [TestClass]
     public class StorageManagerUnitTest
     {
+        [TestCleanup]
+        public void Cleanup()
+        {
+            try
+            {
+                var filesToDelete = Directory.GetFiles(@"c:\temp\", "test????*.lzmc", SearchOption.TopDirectoryOnly);
+                foreach (string fileName in filesToDelete)
+                {
+                    File.Delete(fileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Failed to cleanup test files written. {0}.", ex.Message);
+            }
+        }
+
         [TestMethod]
         public void TestMultithreadCompression()
         {
@@ -22,15 +39,15 @@ namespace UnitTests
             storageManagerSettings.NumberOfThreads = 8;
             storageManagerSettings.UseEncryption = false;
 
-            StorageManager storageManager= new StorageManager(storageManagerSettings);
+            StorageManager storageManager = new StorageManager(storageManagerSettings);
             SerializiableTestClass testClass = GetSerializiableTestClass(0x100000 * 100); //100 Mb
-            //SerializiableTextDataClass tesTextDataClass = new SerializiableTextDataClass();
+                                                                                          //SerializableTextDataClass tesTextDataClass = new SerializableTextDataClass();
 
-            
-            bool compressionSuccessful = storageManager.SerializeObjectToFile(testClass, @"c:\temp\testdata.7z", null);
+
+            bool compressionSuccessful = storageManager.SerializeObjectToFile(testClass, @"c:\temp\testdata.lzmc", null);
             Assert.IsTrue(compressionSuccessful, "Failed to compress file");
 
-            SerializiableTestClass testClassRead = storageManager.DeserializeObjectFromFile<SerializiableTestClass>(@"c:\temp\testdata.7z", null);
+            SerializiableTestClass testClassRead = storageManager.DeserializeObjectFromFile<SerializiableTestClass>(@"c:\temp\testdata.lzmc", null);
             Assert.IsNotNull(testClassRead, "Failed to decode file");
         }
 
@@ -49,18 +66,18 @@ namespace UnitTests
             SerializiableTestClass testClass = GetSerializiableTestClass(0x100000 * 100); //100 Mb
 
 
-            bool compressionSuccessful = storageManager.SerializeObjectToFile(testClass, @"c:\temp\testdata.7z", null);
+            bool compressionSuccessful = storageManager.SerializeObjectToFile(testClass, @"c:\temp\testdata.lzmc", null);
             Assert.IsTrue(compressionSuccessful, "Failed to compress file");
 
             //storageManagerSettings.Password = "false";
-            SerializiableTestClass testClassRead = storageManager.DeserializeObjectFromFile<SerializiableTestClass>(@"c:\temp\testdata.7z", null);
+            SerializiableTestClass testClassRead = storageManager.DeserializeObjectFromFile<SerializiableTestClass>(@"c:\temp\testdata.lzmc", null);
             Assert.IsNotNull(testClassRead, "Failed to decode file");
         }
 
         [TestMethod]
         public void TestAsyncCompression()
         {
-            string testFilePattern = @"c:\temp\testFile{0}.7z";
+            string testFilePattern = @"c:\temp\testFile{0}.lzmc";
             const int numberOfFiles = 5;
 
             StorageManagerSettings storageManagerSettings = new StorageManagerSettings
@@ -72,13 +89,13 @@ namespace UnitTests
             };
 
             StorageManager storageManager = new StorageManager(storageManagerSettings);
-            List<SerializiableTestClass> testClasses= new List<SerializiableTestClass>();
+            List<SerializiableTestClass> testClasses = new List<SerializiableTestClass>();
 
-            Random rnd = new Random(Convert.ToInt32(DateTime.Now.Ticks%Int32.MaxValue));
+            Random rnd = new Random(Convert.ToInt32(DateTime.Now.Ticks % Int32.MaxValue));
             for (int i = 0; i < numberOfFiles; i++)
             {
-                int minSize = 0x100000*1;
-                int maxSize = 0x100000*10;
+                int minSize = 0x100000 * 1;
+                int maxSize = 0x100000 * 10;
 
                 testClasses.Add(GetSerializiableTestClass(rnd.Next(minSize, maxSize)));
             }
@@ -95,7 +112,7 @@ namespace UnitTests
                 testFileIndex++;
             }
 
-            while(!taskList.All(t=>t.IsCompleted))
+            while (!taskList.All(t => t.IsCompleted))
             {
                 Task.WaitAny(taskList.ToArray());
             }
@@ -116,7 +133,7 @@ namespace UnitTests
 
         private byte[] GetRandomBytes(int length, double randomRatio)
         {
-            if(randomRatio < 0.1)
+            if (randomRatio < 0.1)
                 randomRatio = 0.1;
             if (randomRatio > 1)
                 randomRatio = 1;
@@ -146,7 +163,7 @@ namespace UnitTests
             public byte[] DataBytes { get; set; }
             public int Id { get; set; }
             public string Name { get; set; }
-            public string Guid  { get; set; }
+            public string Guid { get; set; }
         }
 
         [Serializable]

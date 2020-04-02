@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using JetBrains.Annotations;
 using Serilog;
 using Serilog.Events;
 
@@ -12,7 +13,7 @@ namespace GeneralToolkitLib.Logging
     public class SerilogAutoConfig
     {
         /// <summary>
-        /// The autoconf settings
+        /// The auto-config settings
         /// </summary>
         private readonly LogSettings _settings;
 
@@ -35,6 +36,7 @@ namespace GeneralToolkitLib.Logging
             _settings = new LogSettings(logFilepath, minLevel);
         }
 
+        [UsedImplicitly]
         public void InitializeLogger()
         {
             ILogger logger;
@@ -70,6 +72,7 @@ namespace GeneralToolkitLib.Logging
         /// <value>
         /// The settings.
         /// </value>
+        [UsedImplicitly]
         public LogSettings Settings { get => _settings; }
 
         public ILogger Logger { get; private set; }

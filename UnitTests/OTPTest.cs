@@ -11,7 +11,7 @@ namespace UnitTests
         public void TimeAuthenticatorTest()
         {
             var authenticator = new TimeAuthenticator();
-            string secret = Authenticator.GenerateKey();
+            string secret = Authenticator.GenerateKey(Authenticator.SecretKeyLength.n16Bytes);
             string code = authenticator.GetCode(secret);
 
             Assert.IsTrue(authenticator.CheckCode(secret,code),"OTP Time Authentication failed");

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing.Text;
 using System.IO;
 using System.Reflection;
+using JetBrains.Annotations;
 
 namespace GeneralToolkitLib.Configuration
 {
@@ -12,6 +12,7 @@ namespace GeneralToolkitLib.Configuration
 
         private static string _userDataPath;
 
+        [UsedImplicitly]
         public static string ApplicationLogFilePath(bool rollingFile)
         {
             string logFilename = Assembly.GetCallingAssembly().GetName().Name;
@@ -45,6 +46,7 @@ namespace GeneralToolkitLib.Configuration
         /// Sets the override user data path. Used for tests to run properly.
         /// </summary>
         /// <param name="path">The path.</param>
+        [UsedImplicitly]
         public static void SetOverrideUserDataPath(string path)
         {
             _userDataPath = path;
@@ -92,8 +94,7 @@ namespace GeneralToolkitLib.Configuration
                 return true;
 
             var d = (DebuggableAttribute)attributes[0];
-            if (d.IsJITTrackingEnabled) return true;
-            return false;
+            return d.IsJITTrackingEnabled;
         }
     }
 }

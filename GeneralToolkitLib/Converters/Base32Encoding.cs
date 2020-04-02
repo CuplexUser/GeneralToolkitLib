@@ -1,9 +1,7 @@
 ﻿using System;
-using JetBrains.Annotations;
 
 namespace GeneralToolkitLib.Converters
 {
-    [UsedImplicitly]
     public class Base32Encoding
     {
         public static byte[] ToBytes(string input)

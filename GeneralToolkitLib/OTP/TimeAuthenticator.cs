@@ -1,4 +1,5 @@
 ﻿using System;
+using Serilog;
 
 namespace GeneralToolkitLib.OTP
 {
@@ -15,9 +16,9 @@ namespace GeneralToolkitLib.OTP
 
         public TimeAuthenticator(IUsedCodesManager usedCodeManager = null, Func<DateTime> nowFunc = null, int intervalSeconds = 30)
         {
-            this.NowFunc = nowFunc ?? (() => DateTime.Now);
-            this.UsedCodeManager = usedCodeManager ?? DefaultUsedCodeManager.Value;
-            this.IntervalSeconds = intervalSeconds;
+            NowFunc = nowFunc ?? (() => DateTime.Now);
+            UsedCodeManager = usedCodeManager ?? DefaultUsedCodeManager.Value;
+            IntervalSeconds = intervalSeconds;
         }
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace GeneralToolkitLib.OTP
         /// <returns>OTP</returns>
         public string GetCode(string secret)
         {
-            return this.GetCode(secret, this.NowFunc());
+            return GetCode(secret, NowFunc());
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace GeneralToolkitLib.OTP
         /// <returns>OTP</returns>
         public string GetCode(string secret, DateTime date)
         {
-            return GetCodeInternal(secret, (ulong) this.GetInterval(date));
+            return GetCodeInternal(secret, (ulong)GetInterval(date));
         }
 
         /// <summary>
@@ -50,9 +51,10 @@ namespace GeneralToolkitLib.OTP
         /// <returns>true if code matches</returns>
         public bool CheckCode(string secret, string code, object user)
         {
-            DateTime successfulTime = DateTime.MinValue;
+            bool result= CheckCode(secret, code, user, out var successfullTime);
+            Log.Debug("CheckingCode {code}. Result was {result}. Datetime used to validate code was {successfullTime}", code, result, successfullTime);
 
-            return this.CheckCode(secret, code, user, out successfulTime);
+            return result;
         }
 
         /// <summary>
@@ -65,22 +67,22 @@ namespace GeneralToolkitLib.OTP
         /// <returns>true if code matches</returns>
         public bool CheckCode(string secret, string code, object user, out DateTime usedDateTime)
         {
-            var baseTime = this.NowFunc();
+            var baseTime = NowFunc();
             DateTime successfulTime = DateTime.MinValue;
 
             // We need to do this in constant time
             var codeMatch = false;
             for (int i = -2; i <= 1; i++)
             {
-                var checkTime = baseTime.AddSeconds(this.IntervalSeconds * i);
-                var checkInterval = this.GetInterval(checkTime);
+                var checkTime = baseTime.AddSeconds(IntervalSeconds * i);
+                var checkInterval = GetInterval(checkTime);
 
-                if (ConstantTimeEquals(this.GetCode(secret, checkTime), code) && (user == null || !this.UsedCodeManager.IsCodeUsed(checkInterval, code, user)))
+                if (ConstantTimeEquals(GetCode(secret, checkTime), code) && (user == null || !UsedCodeManager.IsCodeUsed(checkInterval, code, user)))
                 {
                     codeMatch = true;
                     successfulTime = checkTime;
 
-                    this.UsedCodeManager.AddCode(checkInterval, code, user);
+                    UsedCodeManager.AddCode(checkInterval, code, user);
                 }
             }
 
@@ -97,15 +99,16 @@ namespace GeneralToolkitLib.OTP
         /// <returns>true if code matches</returns>
         public bool CheckCode(string secret, string code)
         {
-            DateTime successfulTime = DateTime.MinValue;
+            bool result = CheckCode(secret, code, null, out var successfullTime);
+            Log.Debug("CheckingCode {code}. Result was {result}. Datetime used to validate code was {successfullTime}", code, result, successfullTime);
 
-            return this.CheckCode(secret, code, null, out successfulTime);
+            return result;
         }
 
         private long GetInterval(DateTime dateTime)
         {
             TimeSpan ts = (dateTime.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
-            return (long) ts.TotalSeconds / this.IntervalSeconds;
+            return (long)ts.TotalSeconds / IntervalSeconds;
         }
     }
 }
