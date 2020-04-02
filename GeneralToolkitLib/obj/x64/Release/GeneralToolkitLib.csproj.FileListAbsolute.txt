@@ -57,3 +57,4 @@ D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\Microsoft.Bcl
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\bin\Release\System.Threading.Tasks.Extensions.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\x64\Release\GeneralToolkitLib.csprojAssemblyReference.cache
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\x64\Release\GeneralToolkitLib.csproj.CoreCompileInputs.cache

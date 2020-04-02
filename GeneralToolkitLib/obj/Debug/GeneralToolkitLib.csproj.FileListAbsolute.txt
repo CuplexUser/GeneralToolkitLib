@@ -60,3 +60,4 @@ D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitL
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.csproj.CopyComplete
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.dll
 D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.pdb
+D:\Projects\GitHub\GeneralToolkitLib\GeneralToolkitLib\obj\Debug\GeneralToolkitLib.csprojAssemblyReference.cache

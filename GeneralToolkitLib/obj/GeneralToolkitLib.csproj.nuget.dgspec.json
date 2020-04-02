@@ -10,12 +10,12 @@
         "projectUniqueName": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
         "projectName": "GeneralToolkitLib",
         "projectPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
-        "packagesPath": "C:\\Users\\iddt\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
         "outputPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\iddt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
             },
             "Serilog.Sinks.PeriodicBatching": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.3.0, )"
             },
             "Serilog.Sinks.RollingFile": {
               "target": "Package",

@@ -148,7 +148,7 @@
           "lib/net45/Serilog.Sinks.File.dll": {}
         }
       },
-      "Serilog.Sinks.PeriodicBatching/2.2.0": {
+      "Serilog.Sinks.PeriodicBatching/2.3.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.0.0"
@@ -353,7 +353,7 @@
           "lib/net45/Serilog.Sinks.File.dll": {}
         }
       },
-      "Serilog.Sinks.PeriodicBatching/2.2.0": {
+      "Serilog.Sinks.PeriodicBatching/2.3.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.0.0"
@@ -558,7 +558,7 @@
           "lib/net45/Serilog.Sinks.File.dll": {}
         }
       },
-      "Serilog.Sinks.PeriodicBatching/2.2.0": {
+      "Serilog.Sinks.PeriodicBatching/2.3.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.0.0"
@@ -763,7 +763,7 @@
           "lib/net45/Serilog.Sinks.File.dll": {}
         }
       },
-      "Serilog.Sinks.PeriodicBatching/2.2.0": {
+      "Serilog.Sinks.PeriodicBatching/2.3.0": {
         "type": "package",
         "dependencies": {
           "Serilog": "2.0.0"
@@ -1021,10 +1021,10 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "Serilog.Sinks.PeriodicBatching/2.2.0": {
-      "sha512": "aL7gNYtyd0Xu7e6eqtn16ZSkS1IQI5v+EEcR10MIpqtIC6/c9aQ09/rYC84Yhh2VV1rIbPyWSv3/jv6GTjlnLg==",
+    "Serilog.Sinks.PeriodicBatching/2.3.0": {
+      "sha512": "UYKSjTMTlUY9T3OgzMmLDLD+z0qPfgvq/RvG0rKfyz+O+Zrjw3X/Xpv14J4WMcGVsOjUaR+k8n2MdmqVpJtI6A==",
       "type": "package",
-      "path": "serilog.sinks.periodicbatching/2.2.0",
+      "path": "serilog.sinks.periodicbatching/2.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1036,7 +1036,7 @@
         "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.xml",
         "lib/netstandard2.0/Serilog.Sinks.PeriodicBatching.dll",
         "lib/netstandard2.0/Serilog.Sinks.PeriodicBatching.xml",
-        "serilog.sinks.periodicbatching.2.2.0.nupkg.sha512",
+        "serilog.sinks.periodicbatching.2.3.0.nupkg.sha512",
         "serilog.sinks.periodicbatching.nuspec"
       ]
     },
@@ -1141,14 +1141,14 @@
       "Serilog.Sinks.Console >= 3.1.1",
       "Serilog.Sinks.EventLog >= 3.1.0",
       "Serilog.Sinks.File >= 4.1.0",
-      "Serilog.Sinks.PeriodicBatching >= 2.2.0",
+      "Serilog.Sinks.PeriodicBatching >= 2.3.0",
       "Serilog.Sinks.RollingFile >= 3.3.0",
       "Serilog.Sinks.Trace >= 2.1.0",
       "protobuf-net >= 2.4.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\iddt\\.nuget\\packages\\": {}
+    "C:\\Users\\Martin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1156,12 +1156,12 @@
       "projectUniqueName": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
       "projectName": "GeneralToolkitLib",
       "projectPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\GeneralToolkitLib.csproj",
-      "packagesPath": "C:\\Users\\iddt\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Martin\\.nuget\\packages\\",
       "outputPath": "D:\\Projects\\GitHub\\GeneralToolkitLib\\GeneralToolkitLib\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\iddt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Martin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1214,7 +1214,7 @@
           },
           "Serilog.Sinks.PeriodicBatching": {
             "target": "Package",
-            "version": "[2.2.0, )"
+            "version": "[2.3.0, )"
           },
           "Serilog.Sinks.RollingFile": {
             "target": "Package",
