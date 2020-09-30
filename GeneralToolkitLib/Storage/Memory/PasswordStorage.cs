@@ -9,15 +9,27 @@ namespace GeneralToolkitLib.Storage.Memory
     public sealed class PasswordStorage : IDisposable
     {
         private readonly Dictionary<string, PasswordStorageItem> _encodedDataDictionary;
-      
+
         public PasswordStorage()
         {
             _encodedDataDictionary = new Dictionary<string, PasswordStorageItem>();
         }
 
         [SecurityCritical]
+        [SecuritySafeCritical]
         public void Set(string key, string password)
         {
+            if (string.IsNullOrEmpty(password))
+            {
+                //Remove password
+                if (_encodedDataDictionary.ContainsKey(key))
+                {
+                    _encodedDataDictionary.Remove(key);
+                }
+
+                return;
+            }
+
             int encodingLength = Encoding.UTF8.GetByteCount(password);
             int paddingLength = 16 - encodingLength % 16;
             byte[] buffer = new byte[encodingLength + paddingLength];
@@ -34,11 +46,12 @@ namespace GeneralToolkitLib.Storage.Memory
                 _encodedDataDictionary.Add(key, passwordStorageItem);
             }
 
-            passwordStorageItem.Data = (byte[]) buffer.Clone();
+            passwordStorageItem.Data = (byte[])buffer.Clone();
             passwordStorageItem.PaddingLength = paddingLength;
         }
 
         [SecurityCritical]
+        [SecuritySafeCritical]
         public string Get(string key)
         {
             if (!_encodedDataDictionary.ContainsKey(key))
@@ -58,11 +71,12 @@ namespace GeneralToolkitLib.Storage.Memory
         }
 
         [SecurityCritical]
+        [SecuritySafeCritical]
         public void PurgeMemory()
         {
-            if (_encodedDataDictionary.Count>0)
+            if (_encodedDataDictionary.Count > 0)
             {
-                foreach(var key in _encodedDataDictionary.Keys)
+                foreach (var key in _encodedDataDictionary.Keys)
                 {
                     byte[] buffer = _encodedDataDictionary[key].Data;
                     ProtectedMemory.Unprotect(buffer, MemoryProtectionScope.SameProcess);
@@ -77,7 +91,7 @@ namespace GeneralToolkitLib.Storage.Memory
 
         public void Dispose()
         {
-            _encodedDataDictionary.Clear();            
+            _encodedDataDictionary.Clear();
         }
     }
 }

@@ -1,7 +1,7 @@
 namespace GeneralToolkitLib.Compression.SevenZip
 {
     /// <summary>
-    ///     Provides the fields that represent properties idenitifiers for compressing.
+    ///     Provides the fields that represent properties identifiers for compressing.
     /// </summary>
     public enum CoderPropID
     {
@@ -31,7 +31,7 @@ namespace GeneralToolkitLib.Compression.SevenZip
         BlockSize,
 
         /// <summary>
-        ///     Specifies number of postion state bits for LZMA (0 <= x <= 4).
+        ///     Specifies number of position state bits for LZMA (0 <= x <= 4).
         /// </summary>
         PosStateBits,
 
@@ -56,7 +56,7 @@ namespace GeneralToolkitLib.Compression.SevenZip
         MatchFinder,
 
         /// <summary>
-        ///     Specifies the number of match finder cyckes.
+        ///     Specifies the number of match finder cycles.
         /// </summary>
         MatchFinderCycles,
 

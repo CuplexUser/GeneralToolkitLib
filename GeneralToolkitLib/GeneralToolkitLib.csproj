@@ -47,7 +47,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>GeneralToolkit2.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>CodeSignCert.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -82,11 +82,17 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
@@ -158,8 +164,11 @@
     <Compile Include="Encryption\License\SysInfoManager.cs" />
     <Compile Include="Events\ControlBorderUpdateEventArgs.cs" />
     <Compile Include="Events\Unsubscriber.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logging\SerilogAutoConfig.cs" />
     <Compile Include="Storage\OpenAndSaveFileTaskAsyncExProgress.cs" />
+    <Compile Include="Utility\ContainerManager.cs" />
+    <Compile Include="Utility\DataConverters\GenericEncoderCallback.cs" />
     <Compile Include="Utility\Serialization\GenericObjectSerializer.cs" />
     <Compile Include="Utility\Serialization\ObjectSerializer.cs" />
     <Compile Include="Utility\Serialization\RawSerializer.cs" />
@@ -246,9 +255,10 @@
     <Compile Include="Storage\Registry\RegistryDataTypeString.cs" />
     <Compile Include="Storage\StorageManager.cs" />
     <Compile Include="Utility\DelayOperation.cs" />
+    <Compile Include="WindowsApi\FormState.cs" />
     <Compile Include="WindowsApi\LoadSystemIcon.cs" />
     <Compile Include="WindowsApi\UserAccountControl\CSUACSelfElevation.cs" />
-    <Compile Include="WindowsApi\FullscreenWindow.cs" />
+    <Compile Include="WindowsApi\WinApi.cs" />
     <Compile Include="WindowsApi\ScreenSaver.cs" />
     <Compile Include="WindowsApi\UserAccountControl\UACSelfElevation.cs" />
     <Compile Include="WindowsApi\WindowsIdentityHelper.cs" />
@@ -256,16 +266,22 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac">
-      <Version>5.1.2</Version>
+      <Version>5.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection">
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="AutofacSerilogIntegration">
-      <Version>2.1.0</Version>
+      <Version>3.0.0</Version>
     </PackageReference>
     <PackageReference Include="JetBrains.Annotations">
-      <Version>2019.1.3</Version>
+      <Version>2020.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
+      <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="protobuf-net">
-      <Version>2.4.4</Version>
+      <Version>3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Serilog">
       <Version>2.9.0</Version>
@@ -282,9 +298,6 @@
     <PackageReference Include="Serilog.Sinks.File">
       <Version>4.1.0</Version>
     </PackageReference>
-    <PackageReference Include="Serilog.Sinks.PeriodicBatching">
-      <Version>2.3.0</Version>
-    </PackageReference>
     <PackageReference Include="Serilog.Sinks.RollingFile">
       <Version>3.3.0</Version>
     </PackageReference>
@@ -293,13 +306,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\..\ImageView\DependencyValidation1\DependencyValidation1.layerdiagram">
+      <Link>DependencyValidation1.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
+    <None Include="CodeSignCert.pfx" />
     <None Include="GeneralToolkit2.pfx" />
     <None Include="GeneralToolkitLib.ruleset" />
     <None Include="Resources\default.ico" />
     <None Include="SignKeys\keypair.snk" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="GeneralToolkit.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

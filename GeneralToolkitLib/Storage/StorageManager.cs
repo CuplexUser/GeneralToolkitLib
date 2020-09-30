@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using GeneralToolkitLib.Compression.SevenZip;
 using GeneralToolkitLib.Compression.SevenZip.Compress.LZMA;
 using GeneralToolkitLib.Encryption;
-
 using GeneralToolkitLib.Storage.Models;
 using ProtoBuf;
 using Serilog;

@@ -1,9 +1,12 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using GeneralToolkitLib.Encryption.License.StaticData;
+using GeneralToolkitLib.Utility.DataConverters;
 
 namespace GeneralToolkitLib.Converters
 {
@@ -222,6 +225,11 @@ namespace GeneralToolkitLib.Converters
                 public FileSizeSteps FileSizeStep;
                 public long Max;
             }
+        }
+        
+        public static byte[] ConvertStringToByteArray(Encoding encoder, string text)
+        {
+            return GenericEncoderCallback.EncodeTextToBinary.Invoke(encoder, text);
         }
     }
 }

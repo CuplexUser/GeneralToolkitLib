@@ -67,7 +67,7 @@ namespace GeneralToolkitLib.Encryption
                     aesAlg.Key = rfc2898DeriveBytes.GetBytes(32);
                     aesAlg.IV = rfc2898DeriveBytes.GetBytes(16);
 
-                    // Create a cncrytor to perform the stream transform.
+                    // Create a encrypt transform
                     ICryptoTransform encrypt = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
                     // Create the streams used for encryption.

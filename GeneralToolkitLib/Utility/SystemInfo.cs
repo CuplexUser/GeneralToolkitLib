@@ -29,31 +29,49 @@ namespace GeneralToolkitLib.Utility
             sb.AppendLine(softwareName);
 
             if (UseProcessorID)
+            {
                 sb.AppendLine(RunQuery("Processor", "ProcessorId"));
+            }
 
             if (UseBaseBoardProduct)
+            {
                 sb.AppendLine(RunQuery("BaseBoard", "Product"));
+            }
 
             if (UseBaseBoardManufacturer)
+            {
                 sb.AppendLine(RunQuery("BaseBoard", "Manufacturer"));
+            }
 
             if (UseDiskDriveSignature)
+            {
                 sb.AppendLine(RunQuery("DiskDrive", "__RELPATH"));
+            }
 
             if (UseVideoControllerCaption)
+            {
                 sb.AppendLine(RunQuery("VideoController", "Caption"));
+            }
 
             if (UsePhysicalMediaSerialNumber)
+            {
                 sb.AppendLine(RunQuery("PhysicalMedia", "SerialNumber"));
+            }
 
             if (UseBiosVersion)
+            {
                 sb.AppendLine(RunQuery("BIOS", "Version"));
+            }
 
             if (UseBiosManufacturer)
+            {
                 sb.AppendLine(RunQuery("BIOS", "Manufacturer"));
+            }
 
             if (UseWindowsSerialNumber)
+            {
                 sb.AppendLine(RunQuery("OperatingSystem", "SerialNumber"));
+            }
 
             return sb.ToString();
         }
@@ -64,8 +82,11 @@ namespace GeneralToolkitLib.Utility
             foreach (var mo in mos.Get().Cast<ManagementObject>())
             {
                 try
-                {
-                    return mo.GetPropertyValue(methodName).ToString();
+                { var result = mo.GetPropertyValue(methodName);
+                    if (result != null)
+                    {
+                        return result.ToString();
+                    }
                 }
                 catch (Exception e)
                 {
