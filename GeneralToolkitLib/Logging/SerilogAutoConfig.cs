@@ -43,7 +43,7 @@ namespace GeneralToolkitLib.Logging
 
             if (_settings.UseRollingFile)
             {
-                logger = new Serilog.LoggerConfiguration().WriteTo.RollingFile(pathFormat: _settings.LogFilePath, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+                logger = new Serilog.LoggerConfiguration().WriteTo.File( path: _settings.LogFilePath, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",                                                            
                                                               fileSizeLimitBytes: _settings.MaxFileSize, retainedFileCountLimit: _settings.MaxDaysToKeepOldFiles)
                                                           .Enrich.WithThreadId()
                                                           .Enrich.FromLogContext()
