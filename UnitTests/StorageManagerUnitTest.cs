@@ -126,7 +126,7 @@ namespace UnitTests
 
         private SerializiableTestClass GetSerializiableTestClass(int fileSize)
         {
-            SerializiableTestClass testClass = new SerializiableTestClass { Id = 1, Name = "Test class nr 1", Guid = Guid.NewGuid().ToString(), DataBytes = GetRandomBytes(fileSize, 0.5) };
+            var testClass = new SerializiableTestClass { Id = 1, Name = "Test class nr 1", Guid = Guid.NewGuid().ToString(), DataBytes = GetRandomBytes(fileSize, 0.5) };
 
             return testClass;
         }

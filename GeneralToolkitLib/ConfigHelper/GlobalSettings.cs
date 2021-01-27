@@ -5,7 +5,7 @@ using System.Reflection;
 namespace GeneralToolkitLib.ConfigHelper
 {
     /// <summary>
-    /// The Application Global Settings class has to be initializes before it can be used since it is always the calling assembly who has all the nessesary data.
+    /// The Application Global Settings class has to be initializes before it can be used since it is always the calling assembly who has all the necessary data.
     /// </summary>
     public static class GlobalSettings
     {
@@ -25,9 +25,6 @@ namespace GeneralToolkitLib.ConfigHelper
 
             _logFileName = "UnitTest.log";
             _userDataPath = testDataPath;
-
-            if (!Directory.Exists(_userDataPath))
-                Directory.CreateDirectory(_userDataPath);
         }
 
         public static void Initialize(string executableAssemblyName, bool useApplicationDataFolder)

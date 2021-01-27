@@ -1,11 +1,19 @@
-﻿namespace GeneralToolkitLib.Storage.Models
+﻿using System.Security;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace GeneralToolkitLib.Storage.Models
 {
+    [SecurityCritical]
     public sealed class StorageManagerSettings
     {
         public int NumberOfThreads { get; set; }
+
         public bool UseMultithreading { get; set; }
+
         public bool UseEncryption { get; set; }
-        public string Password { get; set; }
+
+        [SecuritySafeCritical] private readonly string _password;
 
         public StorageManagerSettings()
         {
@@ -17,19 +25,38 @@
             UseMultithreading = useMultithreading;
             NumberOfThreads = numberOfThreads;
             UseEncryption = useEncryption;
-            Password = password;
+            _password = password;
+            //SetProtectedPassword(password);
         }
 
-        public static StorageManagerSettings GetDefaultSettings()
+        private StorageManagerSettings(int numberOfThreads, string password)
         {
-            StorageManagerSettings settings = new StorageManagerSettings
-            {
-                NumberOfThreads = 1,
-                UseEncryption = false,
-                Password = null,
-                UseMultithreading = false,
-            };
+            NumberOfThreads = numberOfThreads;
+            UseMultithreading = numberOfThreads > 1;
+            UseEncryption = true;
+            _password = password;
+            //SetProtectedPassword(password);
+        }
 
+        //[SecuritySafeCritical]
+        //private void SetProtectedPassword(string password)
+        //{
+        //    _password = Enc
+        //}
+
+        [SecuritySafeCritical]
+        public string GetPassword()
+        {
+            //ProtectedMemory.Unprotect(_passwordBytes, MemoryProtectionScope.SameProcess);
+            //string password = Encoding.Default.GetString(_passwordBytes);
+            //ProtectedMemory.Protect(_passwordBytes, MemoryProtectionScope.SameProcess);
+
+            return _password;
+        }
+
+        public static StorageManagerSettings CreateSettingsWithSecureString(int numberOfThreads, string password)
+        {
+            var settings = new StorageManagerSettings(numberOfThreads, password);
             return settings;
         }
     }

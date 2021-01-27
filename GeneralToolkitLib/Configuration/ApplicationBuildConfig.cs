@@ -13,18 +13,10 @@ namespace GeneralToolkitLib.Configuration
         private static string _userDataPath;
 
         [UsedImplicitly]
-        public static string ApplicationLogFilePath(bool rollingFile)
+        public static string ApplicationLogFilePath()
         {
             string logFilename = Assembly.GetCallingAssembly().GetName().Name;
-            if (rollingFile)
-            {
-                logFilename += "{Date}.log";
-            }
-            else
-            {
-                logFilename += "_log.log";
-            }
-
+            logFilename += $"{DateTime.Today.ToString("yyyy-MM-dd")}.log";
 
             return Path.Combine(UserDataPath, logFilename);
         }

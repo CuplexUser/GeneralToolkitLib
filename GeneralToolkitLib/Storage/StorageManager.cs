@@ -41,7 +41,7 @@ namespace GeneralToolkitLib.Storage
 
                 lock (FileLock)
                 {
-                    return encryptionManager.EncryptAndSaveFile(path, ms, _settings.Password, null);
+                    return encryptionManager.EncryptAndSaveFile(path, ms, _settings.GetPassword(), null);
                 }
 
             }
@@ -180,7 +180,7 @@ namespace GeneralToolkitLib.Storage
             MemoryStream output = new MemoryStream();
             try
             {
-                input = encryptionManager.DecryptFileToMemoryStream(path, _settings.Password, new CryptoProgress(progress));
+                input = encryptionManager.DecryptFileToMemoryStream(path, _settings.GetPassword(), new CryptoProgress(progress));
                 input.Position = 0;
 
                 if (_settings.UseMultithreading && CompressionFileHeader.VerifyFileHeader(input))

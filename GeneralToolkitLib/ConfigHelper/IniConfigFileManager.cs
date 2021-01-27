@@ -22,7 +22,7 @@ namespace GeneralToolkitLib.ConfigHelper
 
         public bool LoadConfigFile(string path)
         {
-            bool readSuccessfull = false;
+            bool readSuccessful = false;
             FileStream fs = null;
             try
             {
@@ -62,7 +62,7 @@ namespace GeneralToolkitLib.ConfigHelper
                     }
                 }
                 fs.Close();
-                readSuccessfull = true;
+                readSuccessful = true;
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace GeneralToolkitLib.ConfigHelper
                 fs?.Close();
             }
 
-            return readSuccessfull;
+            return readSuccessful;
         }
 
         public void SaveConfigFile(string path)
