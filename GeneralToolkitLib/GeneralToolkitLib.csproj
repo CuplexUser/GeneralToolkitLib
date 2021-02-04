@@ -316,8 +316,10 @@
       <Link>DependencyValidation1.layerdiagram</Link>
       <Visible>False</Visible>
     </AdditionalFiles>
+    <None Include=".editorconfig" />
     <None Include="CodeSignCert.pfx" />
     <None Include="GeneralToolkitLib.ruleset" />
+    <None Include="nuget.config" />
     <None Include="Resources\default.ico" />
     <None Include="SignKeys\keypair.snk" />
   </ItemGroup>

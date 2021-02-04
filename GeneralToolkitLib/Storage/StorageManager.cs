@@ -204,7 +204,7 @@ namespace GeneralToolkitLib.Storage
                 input?.Close();
             }
 
-            var attrs = Attribute.GetCustomAttributes(typeof(T));
+            Attribute[] attrs = Attribute.GetCustomAttributes(typeof(T));
             bool protoBufferCompatible = attrs.OfType<DataContractAttribute>().Any();
 
             progress?.Report(protoBufferCompatible ? new StorageManagerProgress { ProgressPercentage = 0, Text = "Deserializing using Protobuffer" } : new StorageManagerProgress { ProgressPercentage = 0, Text = "Deserializing using BinaryFormatter" });
