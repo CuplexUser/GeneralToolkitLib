@@ -21,13 +21,10 @@ namespace GeneralToolkitLib.UserControls
             InitializeComponent();
         }
 
-        [DefaultValue("Apperence")]
-        [Browsable(true)]
+        [DefaultValue("Apperence"), Browsable(true)]
         public override string Text { get; set; }
 
-        [DefaultValue(false)]
-        [Browsable(true)]
-        [Category("Behavior")]
+        [DefaultValue(false), Browsable(true), Category("Behavior")]
         public bool Active
         {
             get { return _active; }
@@ -39,9 +36,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [DefaultValue(false)]
-        [Browsable(true)]
-        [Category("Design")]
+        [DefaultValue(false), Browsable(true), Category("Design")]
         public bool ShowText { get; set; }
 
 

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using GeneralToolkitLib.Storage;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using GeneralToolkitLib.Storage;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
 {
@@ -58,9 +58,9 @@ namespace UnitTests
             {
                 UseMultithreading = true,
                 NumberOfThreads = 8,
-                UseEncryption = true,
-                Password = "UnitTestPassword12345678#####?"
+                UseEncryption = true
             };
+            storageManagerSettings.SetPassword("UnitTestPassword12345678#####?");
 
             StorageManager storageManager = new StorageManager(storageManagerSettings);
             SerializiableTestClass testClass = GetSerializiableTestClass(0x100000 * 100); //100 Mb
@@ -85,7 +85,6 @@ namespace UnitTests
                 UseMultithreading = true,
                 NumberOfThreads = 8,
                 UseEncryption = false,
-                Password = null
             };
 
             StorageManager storageManager = new StorageManager(storageManagerSettings);

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
 {
@@ -80,10 +80,10 @@ Drumstick sirloin ball tip salami strip steak jerky shank. Beef ribs tri-tip bal
 
             StringBuilder sb = new StringBuilder();
 
-            while(sb.Length < length)
+            while (sb.Length < length)
             {
                 string testData;
-                if(this.GetRandomInt(0, 9) < 5)
+                if (this.GetRandomInt(0, 9) < 5)
                     testData = testData1;
                 else
                     testData = testData2;
@@ -91,22 +91,22 @@ Drumstick sirloin ball tip salami strip steak jerky shank. Beef ribs tri-tip bal
                 int startIndex = this.GetRandomInt(0, testData.Length - 25);
                 int subStrlength = testData.Length - startIndex;
 
-                if(subStrlength > length - sb.Length)
+                if (subStrlength > length - sb.Length)
                     subStrlength = length - sb.Length;
 
-                if(subStrlength > 0)
+                if (subStrlength > 0)
                     sb.Append(testData.Substring(startIndex, subStrlength));
             }
 
             return sb.ToString();
         }
 
-        private byte[] CreateTestdata( int size, double randomDataAmount)
+        private byte[] CreateTestdata(int size, double randomDataAmount)
         {
-            if(randomDataAmount > 1)
+            if (randomDataAmount > 1)
                 randomDataAmount = 1;
 
-            if(randomDataAmount < 0)
+            if (randomDataAmount < 0)
                 randomDataAmount = 0;
 
             const int MIN_TEXT_LENGT = 10;
@@ -124,10 +124,10 @@ Drumstick sirloin ball tip salami strip steak jerky shank. Beef ribs tri-tip bal
                 int testDataLength = GetRandomInt(MIN_TEXT_LENGT, MAX_TEXT_LENGT);
                 string testData = GetTestdataString(testDataLength);
 
-                if(testData.Length > (textData - dataWritten))
+                if (testData.Length > (textData - dataWritten))
                 {
                     int subStrLength = textData - dataWritten;
-                    if(subStrLength == 0)
+                    if (subStrLength == 0)
                         break;
 
                     streamWriter.Write(testData.Substring(0, subStrLength));
@@ -136,11 +136,11 @@ Drumstick sirloin ball tip salami strip steak jerky shank. Beef ribs tri-tip bal
                 else
                 {
                     streamWriter.Write(testData);
-                    dataWritten += testData.Length;    
+                    dataWritten += testData.Length;
                 }
             }
             streamWriter.Flush();
-            if(randomDataBytes > 0)
+            if (randomDataBytes > 0)
             {
                 var rndGen = RandomNumberGenerator.Create();
                 byte[] buffer = new byte[randomDataBytes];
@@ -159,7 +159,7 @@ Drumstick sirloin ball tip salami strip steak jerky shank. Beef ribs tri-tip bal
 
             int randomInt = min + (BitConverter.ToInt32(buffer, 0) % max);
 
-            if(randomInt < min)
+            if (randomInt < min)
                 randomInt = Math.Abs(randomInt);
 
             return randomInt;
@@ -167,7 +167,7 @@ Drumstick sirloin ball tip salami strip steak jerky shank. Beef ribs tri-tip bal
 
         private bool CompareByteArrays(byte[] array1, byte[] array2)
         {
-            if(array1.Length != array2.Length)
+            if (array1.Length != array2.Length)
                 return false;
 
             return !array1.Where((t, i) => t != array2[i]).Any();

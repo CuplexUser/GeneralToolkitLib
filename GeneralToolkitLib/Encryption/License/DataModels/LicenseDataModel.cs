@@ -3,8 +3,7 @@ using System.Runtime.Serialization;
 
 namespace GeneralToolkitLib.Encryption.License.DataModels
 {
-    [Serializable]
-    [DataContract(Name = "LicenseDataModel")]
+    [Serializable, DataContract(Name = "LicenseDataModel")]
     public sealed class LicenseDataModel
     {
         [DataMember(Name = "RegistrationData", Order = 1)]

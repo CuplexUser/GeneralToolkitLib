@@ -1,7 +1,4 @@
-﻿using System.Collections.Specialized;
-using System.Text;
-
-namespace GeneralToolkitLib.CmdParsing
+﻿namespace GeneralToolkitLib.CmdParsing
 {
     //public class SimpleParameterParser : CommandParserBase
     //{

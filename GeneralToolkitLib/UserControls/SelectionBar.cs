@@ -36,21 +36,13 @@ namespace GeneralToolkitLib.UserControls
             _mouseAction = new MouseAction();
         }
 
-        [Browsable(true)]
-        [Category("Behavior")]
-        [Description("The timestamp of the latest entry.")]
-        [DefaultValue(0)]
+        [Browsable(true), Category("Behavior"), Description("The timestamp of the latest entry."), DefaultValue(0)]
         public int MinValue { get; protected set; }
 
-        [Browsable(true)]
-        [Category("Behavior")]
-        [Description("The timestamp of the latest entry.")]
-        [DefaultValue(100)]
+        [Browsable(true), Category("Behavior"), Description("The timestamp of the latest entry."), DefaultValue(100)]
         public int MaxValue { get; protected set; }
 
-        [Browsable(true)]
-        [Category("Behavior")]
-        [Description("The timestamp of the latest entry.")]
+        [Browsable(true), Category("Behavior"), Description("The timestamp of the latest entry.")]
         public int SelectionStart
         {
             get { return _selectionStart; }
@@ -65,10 +57,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Behavior")]
-        [Description("The timestamp of the latest entry.")]
-        [DefaultValue(100)]
+        [Browsable(true), Category("Behavior"), Description("The timestamp of the latest entry."), DefaultValue(100)]
         public int SelectionEnd
         {
             get { return _selectionEnd; }
@@ -83,10 +72,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("The color of the main bar")]
-        [DefaultValue(typeof(Color), "0xff7cfc00")]
+        [Browsable(true), Category("Appearance"), Description("The color of the main bar"), DefaultValue(typeof(Color), "0xff7cfc00")]
         public Color BarColor
         {
             get { return _barColor; }
@@ -97,10 +83,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("The border color of the main bar")]
-        [DefaultValue(typeof(Color), "0xff808080")]
+        [Browsable(true), Category("Appearance"), Description("The border color of the main bar"), DefaultValue(typeof(Color), "0xff808080")]
         public Color BarBorderColor
         {
             get { return _barBorderColor; }
@@ -111,10 +94,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("Display a border around the bar")]
-        [DefaultValue(false)]
+        [Browsable(true), Category("Appearance"), Description("Display a border around the bar"), DefaultValue(false)]
         public bool ShowBarBorder
         {
             get { return _showBarBorder; }
@@ -125,10 +105,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("The background color")]
-        [DefaultValue(typeof(Color), "0xff3cb371")]
+        [Browsable(true), Category("Appearance"), Description("The background color"), DefaultValue(typeof(Color), "0xff3cb371")]
         public Color BackgroundColor
         {
             get { return _backgroundColor; }
@@ -139,10 +116,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("The control border color")]
-        [DefaultValue(typeof(Color), "0xff808080")]
+        [Browsable(true), Category("Appearance"), Description("The control border color"), DefaultValue(typeof(Color), "0xff808080")]
         public Color BorderColor
         {
             get { return _borderColor; }
@@ -153,10 +127,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("The background hash style")]
-        [DefaultValue(typeof(HatchStyle), "LargeGrid")]
+        [Browsable(true), Category("Appearance"), Description("The background hash style"), DefaultValue(typeof(HatchStyle), "LargeGrid")]
         public HatchStyle? BackgroundHatchStyle
         {
             get { return _backgroundHatchStyle; }
@@ -167,10 +138,7 @@ namespace GeneralToolkitLib.UserControls
             }
         }
 
-        [Browsable(true)]
-        [Category("Appearance")]
-        [Description("The bar hash style")]
-        [DefaultValue(typeof(HatchStyle), "DarkUpwardDiagonal")]
+        [Browsable(true), Category("Appearance"), Description("The bar hash style"), DefaultValue(typeof(HatchStyle), "DarkUpwardDiagonal")]
         public HatchStyle? BarHatchStyle
         {
             get { return _barHatchStyle; }

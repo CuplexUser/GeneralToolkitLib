@@ -134,8 +134,7 @@ namespace GeneralToolkitLib.Storage.Models
         }
     }
 
-    [Serializable]
-    [DataContract(Name = "ArchiveFileInfo")]
+    [Serializable, DataContract(Name = "ArchiveFileInfo")]
     public class ArchiveFileInfo
     {
         [DataMember(Order = 0, Name = "Name")]

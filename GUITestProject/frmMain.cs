@@ -1,8 +1,7 @@
-﻿using System;
-using System.Text;
-using System.Windows.Forms;
-using GeneralToolkitLib.Converters;
+﻿using GeneralToolkitLib.Converters;
 using GeneralToolkitLib.OTP;
+using System;
+using System.Windows.Forms;
 
 namespace GUITestProject
 {

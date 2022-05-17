@@ -131,11 +131,13 @@ namespace GeneralToolkitLib.WindowsApi.UserAccountControl
             if (!IsRunAsAdmin())
             {
                 // Launch itself as administrator
-                var proc = new ProcessStartInfo();
-                proc.UseShellExecute = true;
-                proc.WorkingDirectory = Environment.CurrentDirectory;
-                proc.FileName = Application.ExecutablePath;
-                proc.Verb = "runas";
+                var proc = new ProcessStartInfo
+                {
+                    UseShellExecute = true,
+                    WorkingDirectory = Environment.CurrentDirectory,
+                    FileName = Application.ExecutablePath,
+                    Verb = "runas"
+                };
 
                 try
                 {

@@ -2,6 +2,7 @@
 using System.IO;
 using CompressionTest.Misc;
 using GeneralToolkitLib.Utility.DataConverters;
+using ManagedXZ;
 using ManagedLzma.LZMA;
 using ManagedLzma.LZMA.Master;
 using ManagedLzma.Testing;

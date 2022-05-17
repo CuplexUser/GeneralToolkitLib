@@ -2,10 +2,8 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using GeneralToolkitLib.Encryption.License.StaticData;
 using GeneralToolkitLib.Utility.DataConverters;
 
 namespace GeneralToolkitLib.Converters

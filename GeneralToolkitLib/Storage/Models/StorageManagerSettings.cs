@@ -1,6 +1,5 @@
-﻿using System.Security;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System;
+using System.Security;
 
 namespace GeneralToolkitLib.Storage.Models
 {
@@ -13,7 +12,8 @@ namespace GeneralToolkitLib.Storage.Models
 
         public bool UseEncryption { get; set; }
 
-        [SecuritySafeCritical] private readonly string _password;
+        [SecuritySafeCritical] 
+        private string _password;
 
         public StorageManagerSettings()
         {
@@ -44,6 +44,11 @@ namespace GeneralToolkitLib.Storage.Models
         //    _password = Enc
         //}
 
+        public void SetPassword(string password)
+        {
+            _password = password;
+        }
+
         [SecuritySafeCritical]
         public string GetPassword()
         {
@@ -58,6 +63,18 @@ namespace GeneralToolkitLib.Storage.Models
         {
             var settings = new StorageManagerSettings(numberOfThreads, password);
             return settings;
+        }
+
+        public static StorageManagerSettings GetDefaultSettings()
+        {
+            var storageManager= new StorageManagerSettings {
+                NumberOfThreads = Environment.ProcessorCount,
+                UseEncryption = true,
+                UseMultithreading = true,
+            };
+            storageManager.SetPassword("64AC8DF1-7CBD-4424-BD32-1735A0869F06");
+
+            return storageManager;
         }
     }
 }

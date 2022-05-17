@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using GeneralToolkitLib.Compression.SevenZip;
 using GeneralToolkitLib.Compression.SevenZip.Compress.LZMA;
@@ -198,6 +199,7 @@ namespace GeneralToolkitLib.Storage
             catch (Exception ex)
             {
                 Log.Error(ex, "Error in StorageManager.DeSerializeAndDecompressObjectFromEncryptedFile()");
+                throw new CryptographicUnexpectedOperationException("DeSerializeAndDecompressObjectFromEncryptedFile");
             }
             finally
             {

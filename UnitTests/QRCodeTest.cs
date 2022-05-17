@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
-using GeneralToolkitLib.Barcode;
+﻿using GeneralToolkitLib.Barcode;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 
 namespace UnitTests
 {

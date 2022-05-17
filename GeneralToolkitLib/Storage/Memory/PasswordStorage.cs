@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace GeneralToolkitLib.Storage.Memory
@@ -15,8 +15,7 @@ namespace GeneralToolkitLib.Storage.Memory
             _encodedDataDictionary = new Dictionary<string, PasswordStorageItem>();
         }
 
-        [SecurityCritical]
-        [SecuritySafeCritical]
+        [SecurityCritical, SecuritySafeCritical]
         public void Set(string key, string password)
         {
             if (string.IsNullOrEmpty(password))
@@ -50,8 +49,7 @@ namespace GeneralToolkitLib.Storage.Memory
             passwordStorageItem.PaddingLength = paddingLength;
         }
 
-        [SecurityCritical]
-        [SecuritySafeCritical]
+        [SecurityCritical, SecuritySafeCritical]
         public string Get(string key)
         {
             if (!_encodedDataDictionary.ContainsKey(key))
@@ -70,8 +68,7 @@ namespace GeneralToolkitLib.Storage.Memory
             public int PaddingLength;
         }
 
-        [SecurityCritical]
-        [SecuritySafeCritical]
+        [SecurityCritical, SecuritySafeCritical]
         public void PurgeMemory()
         {
             if (_encodedDataDictionary.Count > 0)
@@ -92,6 +89,32 @@ namespace GeneralToolkitLib.Storage.Memory
         public void Dispose()
         {
             _encodedDataDictionary.Clear();
+        }
+    }
+
+    public enum MemoryProtectionScope
+    {
+        SameProcess
+    }
+
+    public static class ProtectedMemory
+    {
+        private static readonly MemoryStream _memoryStream = new MemoryStream();
+        
+
+        public static void Unprotect(byte[] buffer, MemoryProtectionScope sameProcess)
+        {
+            
+        }
+
+        public static void Protect(byte[] buffer, MemoryProtectionScope sameProcess)
+        {
+            _memoryStream.Write(buffer,0,buffer.Length);
+        }
+
+        public static long GetProtectedByteLength()
+        {
+            return _memoryStream.Length;
         }
     }
 }

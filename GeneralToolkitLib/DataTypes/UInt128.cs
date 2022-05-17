@@ -5,8 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace GeneralToolkitLib.DataTypes
 {
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    [Serializable]
+    [StructLayout(LayoutKind.Sequential, Pack = 1), Serializable]
     public struct UInt128 : IComparable<UInt128>, IEquatable<UInt128>, IFormattable
     {
         public const int SizeOf = 16;

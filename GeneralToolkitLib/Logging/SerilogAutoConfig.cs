@@ -36,35 +36,35 @@ namespace GeneralToolkitLib.Logging
             _settings = new LogSettings(logFilepath, minLevel);
         }
 
-        [UsedImplicitly]
-        public void InitializeLogger()
-        {
-            ILogger logger;
+        //[UsedImplicitly]
+        //public void InitializeLogger()
+        //{
+        //    ILogger logger;
 
-            if (_settings.UseRollingFile)
-            {
-                logger = new Serilog.LoggerConfiguration().WriteTo.File( path: _settings.LogFilePath, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",                                                            
-                                                              fileSizeLimitBytes: _settings.MaxFileSize, retainedFileCountLimit: _settings.MaxDaysToKeepOldFiles)
-                                                          .Enrich.WithThreadId()
-                                                          .Enrich.FromLogContext()
-                                                          .MinimumLevel.Is(_settings.MinLevel)
-                                                          .CreateLogger();
+        //    if (_settings.UseRollingFile)
+        //    {
+        //        logger = Serilog.LoggerConfiguration().WriteTo.File( path: _settings.LogFilePath, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",                                                            
+        //                                                      fileSizeLimitBytes: _settings.MaxFileSize, retainedFileCountLimit: _settings.MaxDaysToKeepOldFiles)
+        //                                                  .Enrich.WithThreadId()
+        //                                                  .Enrich.FromLogContext()
+        //                                                  .MinimumLevel.Is(_settings.MinLevel)
+        //                                                  .CreateLogger();
 
-            }
-            else
-            {
-                logger = new Serilog.LoggerConfiguration().WriteTo.File(_settings.LogFilePath, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
-                                                              fileSizeLimitBytes: _settings.MaxFileSize)
-                                                          .Enrich.WithThreadId()
-                                                          .Enrich.FromLogContext()
-                                                          .MinimumLevel.Is(_settings.MinLevel)
-                                                          .CreateLogger();
+        //    }
+        //    else
+        //    {
+        //        logger = Serilog.LoggerConfiguration().WriteTo.File(_settings.LogFilePath, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+        //                                                      fileSizeLimitBytes: _settings.MaxFileSize)
+        //                                                  .Enrich.WithThreadId()
+        //                                                  .Enrich.FromLogContext()
+        //                                                  .MinimumLevel.Is(_settings.MinLevel)
+        //                                                  .CreateLogger();
 
-            }
+        //    }
 
-            Logger = logger;
-            Log.Logger = logger;
-        }
+        //    Logger = logger;
+        //    Log.Logger = logger;
+        //}
 
         /// <summary>
         /// Gets the settings.

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
-using GeneralToolkitLib.Converters;
 using GeneralToolkitLib.Encryption.License;
 using GeneralToolkitLib.Encryption.License.DataModels;
 

@@ -7,32 +7,44 @@ namespace GeneralToolkitLib.ConfigHelper
     /// <summary>
     /// The Application Global Settings class has to be initializes before it can be used since it is always the calling assembly who has all the necessary data.
     /// </summary>
-    public static class GlobalSettings
+    public class GlobalSettings
     {
-        public static bool Initialized => _isInitialized;
-
-        private const string UserDbFileName = "ComputedHashData.bin";
-        private static string _logFileName;
-        private static string _userDataPath;
-        private static bool _isInitialized;
-
-        public static void UnitTestInitialize(string testDataPath)
+        public bool Initialized { get; private set; }
+        public static GlobalSettings Settings
         {
-            if (_isInitialized)
+            get
+            {
+                return Instance;
+            }
+        }
+
+        public static readonly GlobalSettings Instance= new GlobalSettings();
+        private const string UserDbFileName = "ComputedHashData.bin";
+        private string _logFileName;
+        private string _userDataPath;
+
+        public GlobalSettings()
+        {
+            Initialized = false;
+        }
+
+        public void UnitTestInitialize(string testDataPath)
+        {
+            if (Initialized)
                 return;
 
-            _isInitialized = true;
+            Initialized = true;
 
             _logFileName = "UnitTest.log";
             _userDataPath = testDataPath;
         }
 
-        public static void Initialize(string executableAssemblyName, bool useApplicationDataFolder)
+        public void Initialize(string executableAssemblyName, bool useApplicationDataFolder)
         {
-            if (_isInitialized)
+            if (Initialized)
                 return;
 
-            _isInitialized = true;
+            Initialized = true;
 
             _logFileName = executableAssemblyName + ".log";
             if (useApplicationDataFolder)
@@ -44,15 +56,15 @@ namespace GeneralToolkitLib.ConfigHelper
                 Directory.CreateDirectory(_userDataPath);
         }
 
-        public static string GetApplicationLogFilePath()
+        public string GetApplicationLogFilePath()
         {
-            if (!_isInitialized)
+            if (!Initialized)
                 throw new InvalidOperationException("GetApplicationLogDirectory() can only be called after initialization");
 
             return Path.Combine(_userDataPath, _logFileName);
         }
 
-        private static string GetAssemblyPath(string fullAssemblyPath)
+        private string GetAssemblyPath(string fullAssemblyPath)
         {
             if (fullAssemblyPath != null)
             {
@@ -63,15 +75,15 @@ namespace GeneralToolkitLib.ConfigHelper
             return null;
         }
 
-        public static string GetHashtableFilename()
+        public string GetHashtableFilename()
         {
-            if (!_isInitialized)
+            if (!Initialized)
                 throw new InvalidOperationException("GetHashtableFilename() can only be called after initialization");
 
             return Path.Combine(_userDataPath, UserDbFileName);
         }
 
-        public static string GetUserDataDirectoryPath()
+        public string GetUserDataDirectoryPath()
         {
             if (!Initialized)
                 throw new InvalidOperationException("Default Config is not initialized!");

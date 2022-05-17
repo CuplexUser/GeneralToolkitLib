@@ -3,8 +3,7 @@ using System.Runtime.Serialization;
 
 namespace GeneralToolkitLib.Encryption
 {
-    [Serializable]
-    [DataContract]
+    [Serializable, DataContract]
     public sealed class RSAKeySetIdentity
     {
         [DataMember(Order = 1)] public readonly string RSA_PublicKey;

@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralToolkitLib", "GeneralToolkitLib\GeneralToolkitLib.csproj", "{18B7C1DC-CB9B-4B4F-B3BB-40E79B277DD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralToolkitLib", "GeneralToolkitLib\GeneralToolkitLib.csproj", "{18B7C1DC-CB9B-4B4F-B3BB-40E79B277DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{9CB8ACDB-937F-4328-B2AA-162B3A2132A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{9CB8ACDB-937F-4328-B2AA-162B3A2132A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUITestProject", "GUITestProject\GUITestProject.csproj", "{58FF61AB-C9FB-46CE-8906-13CDAE1A8E64}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompressionTest", "CompressionTest\CompressionTest.csproj", "{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUITestProject", "GUITestProject\GUITestProject.csproj", "{58FF61AB-C9FB-46CE-8906-13CDAE1A8E64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,16 +43,11 @@ Global
 		{58FF61AB-C9FB-46CE-8906-13CDAE1A8E64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58FF61AB-C9FB-46CE-8906-13CDAE1A8E64}.Release|x64.ActiveCfg = Release|x64
 		{58FF61AB-C9FB-46CE-8906-13CDAE1A8E64}.Release|x64.Build.0 = Release|x64
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Debug|x64.Build.0 = Debug|Any CPU
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Release|x64.ActiveCfg = Release|x64
-		{6F6FCEF1-B75A-4634-9FA7-F6EA4A45C8FF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E02552D-7D74-4851-A798-CF7BF06D4757}
 	EndGlobalSection
 EndGlobal
