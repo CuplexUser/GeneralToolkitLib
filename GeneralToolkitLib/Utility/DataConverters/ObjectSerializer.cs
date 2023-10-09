@@ -41,7 +41,7 @@ namespace GeneralToolkitLib.Utility.DataConverters
             if (protoBufferCompatible)
                 return SerializeUsingProtoBuffersInternal(obj);
             else
-                return SerializeUsingBinaryFormatterInternal(obj);
+                throw new ArgumentException("input object is not serializable as a DataContract", nameof(obj));
         }
 
         #region Private Byte Array layer
@@ -53,14 +53,6 @@ namespace GeneralToolkitLib.Utility.DataConverters
             return ms.ToArray();
         }
 
-        private byte[] SerializeUsingBinaryFormatterInternal(T serializableObject)
-        {
-            MemoryStream ms = new MemoryStream();
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            binaryFormatter.Serialize(ms, serializableObject);
-            return ms.ToArray();
-        }
-
         private T DeserializeProtoBufferObjectDataInternal(byte[] data)
         {
             MemoryStream ms = new MemoryStream(data);
@@ -69,10 +61,8 @@ namespace GeneralToolkitLib.Utility.DataConverters
 
         private T DeserializeBinaryFormatterObjectDataInternal(byte[] data)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
             MemoryStream ms = new MemoryStream(data);
-
-            return (T) binaryFormatter.Deserialize(ms);
+            return Serializer.Deserialize<T>(ms);
         }
 
         #endregion

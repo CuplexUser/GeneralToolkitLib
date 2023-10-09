@@ -97,8 +97,7 @@ namespace GeneralToolkitLib.Storage
                 Serializer.NonGeneric.Serialize(msInput, obj);
             else
             {
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                binaryFormatter.Serialize(msInput, obj);
+                throw new ArgumentException("input object is not serializable as a DataContract", nameof(obj));
             }
 
             CodeProgressImplementation coderProgress = null;
@@ -138,8 +137,7 @@ namespace GeneralToolkitLib.Storage
                     Serializer.NonGeneric.Serialize(input, obj);
                 else
                 {
-                    BinaryFormatter binaryFormatter = new BinaryFormatter();
-                    binaryFormatter.Serialize(input, obj);
+                    throw new ArgumentException("input object is not serializable as a DataContract", nameof(obj));
                 }
 
                 input.Position = 0;
@@ -211,11 +209,9 @@ namespace GeneralToolkitLib.Storage
 
             progress?.Report(protoBufferCompatible ? new StorageManagerProgress { ProgressPercentage = 0, Text = "Deserializing using Protobuffer" } : new StorageManagerProgress { ProgressPercentage = 0, Text = "Deserializing using BinaryFormatter" });
 
-            if (protoBufferCompatible)
-                return Serializer.Deserialize<T>(output);
 
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            return (T)binaryFormatter.Deserialize(output);
+            return Serializer.Deserialize<T>(output);
+
         }
 
         private T DeSerializeAndDecompressObjectFromFile<T>(string path, IProgress<StorageManagerProgress> progress)
@@ -256,8 +252,7 @@ namespace GeneralToolkitLib.Storage
                 deserializedObj = Serializer.Deserialize<T>(output);
             else
             {
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                deserializedObj = (T)binaryFormatter.Deserialize(output);
+                throw new ArgumentException("input object is not serializable as a DataContract", nameof(path));
             }
 
             output.Dispose();

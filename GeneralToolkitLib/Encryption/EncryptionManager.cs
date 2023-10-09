@@ -2,10 +2,12 @@
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.DataContracts;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using ProtoBuf;
 using Serilog;
 using SHA256 = GeneralToolkitLib.Hashing.SHA256;
 
@@ -257,17 +259,16 @@ namespace GeneralToolkitLib.Encryption
             return msEncodedData.ToArray();
         }
 
-        public static byte[] EncryptObject(object obj, string passwordString)
+        public static byte[] EncryptObject<T>(T obj, string passwordString) where T: class
         {
-            var binaryFormatter = new BinaryFormatter();
             var ms = new MemoryStream();
             var msEncodedData = new MemoryStream();
-            binaryFormatter.Serialize(ms, obj);
+            Serializer.Serialize<T>(ms, obj);
+            
 
             using (Aes aesAlg = Aes.Create())
             {
                 var rfc2898DeriveBytes = new Rfc2898DeriveBytes(passwordString, SALT, 1000);
-                if (aesAlg == null) return msEncodedData.ToArray();
                 aesAlg.BlockSize = 128;
                 aesAlg.KeySize = 256;
                 aesAlg.Padding = PaddingMode.PKCS7;
